@@ -7,9 +7,23 @@ namespace LogInTest.Services
 {
     public class DataValidation
     {
+        public object Request { get; private set; }
+
         protected void btn_Click(object sender, EventArgs e)
         {
 
+            if ()
+            {
+
+            }
+            else if ()
+            {
+
+            }
+            else if ()
+            {
+
+            }
         }
     }
 }
