@@ -7,22 +7,24 @@ namespace LogInTest.Services
 {
     public class DataValidation
     {
-       
-        protected void btn_Click(object sender, EventArgs e)
-        {
+     
+       //You can't have btn click event in a web app:
+
+        //protected void btn_Click(object sender, EventArgs e)
+        //{
             
-            if ()
-            {
+        //    if ()
+        //    {
 
-            }
-            else if ()
-            {
+        //    }
+        //    else if ()
+        //    {
 
-            }
-            else if ()
-            {
+        //    }
+        //    else if ()
+        //    {
 
-            }
-        }
+        //    }
+        //}
     }
 }
