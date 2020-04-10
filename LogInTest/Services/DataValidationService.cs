@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 namespace LogInTest.Services
 {
 
-   public class SomeClassNameSuchAs_DataValidationService
+   public class DataValidationService
    {
       /// <summary>
       /// Class constructor with no arguments
       /// </summary>
-      public SomeClassNameSuchAs_DataValidationService()
+      public DataValidationService()
       {
 
       }
@@ -19,20 +19,29 @@ namespace LogInTest.Services
       /// <summary>
       /// Class constructor with 1 argument
       /// </summary>
-      public SomeClassNameSuchAs_DataValidationService(int someValuePassedHere)
+      public DataValidationService(string userName, string password)
       {
-         this._exampleOfAField = someValuePassedHere;
+         this._name = userName;
+         this._password = password;
       }
 
-      private int _exampleOfAField;
+      private string _name;
+      private string _password;
 
-      public int JustAnExampleOfAPublicProperty
+      public string Name
       {
          //the getter
-         get { return _exampleOfAField; }
+         get { return _name; }
 
          //the setter
-         set { _exampleOfAField = value; }
+         set { _name = value; }
+      }
+
+      public string Password
+      {
+        get { return _password; }
+        
+        set { _password = value; }
       }
 
 
@@ -40,20 +49,20 @@ namespace LogInTest.Services
       /// A method that takes 0 argumens and returns a List (which a equivalent ot Java's ArrayList)
       /// </summary>
       /// <returns></returns>
-      public List<TestDataClass> UserProfiles()
+      public List<UserProfile> UserProfiles()
       {
-         List<TestDataClass> firstList = new List<TestDataClass>();
-         var user1 = new TestDataClass();
+         List<UserProfile> firstList = new List<UserProfile>();
+         var user1 = new UserProfile();
          user1.Name = "kostovsk";
          user1.Password = "123";
          firstList.Add(user1);
 
-         var user2 = new TestDataClass();
+         var user2 = new UserProfile();
          user2.Name = "skostov";
          user2.Password = "456";
          firstList.Add(user2);
 
-         var user3 = new TestDataClass();
+         var user3 = new UserProfile();
          user3.Name = "stoichokostov";
          user3.Password = "789";
          firstList.Add(user3);
@@ -66,20 +75,20 @@ namespace LogInTest.Services
       /// A method that takes 0 argumens and returns an Array
       /// </summary>
       /// <returns></returns>
-      public TestDataClass[] UserProfilesArray()
+      public UserProfile[] UserProfilesArray()
       {
-         TestDataClass[] theArray = new TestDataClass[3];
-         var user1 = new TestDataClass();
+         UserProfile[] theArray = new UserProfile[3];
+         var user1 = new UserProfile();
          user1.Name = "kostovsk";
          user1.Password = "123";
          theArray[0] =  user1;
 
-         var user2 = new TestDataClass();
+         var user2 = new UserProfile();
          user2.Name = "skostov";
          user2.Password = "456";
          theArray[1] = user2;
 
-         var user3 = new TestDataClass();
+         var user3 = new UserProfile();
          user3.Name = "stoichokostov";
          user3.Password = "789";
          theArray[2] = user3;
