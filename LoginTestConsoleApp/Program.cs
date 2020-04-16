@@ -31,6 +31,18 @@ namespace LoginTestConsoleApp
                 }
             }
 
+            for (int i = 0; i < users.Length; i++)
+            {
+                //System.Console.WriteLine("{0}", i);
+
+                for (int j = 0; j < users[i].Length - 1; j++)
+                {
+                    //System.Console.WriteLine("{0}{1}", users[i][j], j == (users[i].Length - 1) ? "" : " ");
+                    System.Console.WriteLine(users[i][j]);
+
+                }
+            }
+
             Console.ReadLine();
         }
 
