@@ -39,9 +39,17 @@ namespace LoginTestConsoleApp
                 {
                     //System.Console.WriteLine("{0}{1}", users[i][j], j == (users[i].Length - 1) ? "" : " ");
                     //System.Console.WriteLine(users[i][users[i].Length - 2]);
-                    if (users[i][users[i].Length - 2] == inputUsername && users[i][users[i].Length - 1] == inputPassword)
+
+                    var itemName = users[i][users[i].Length - 2];
+                    var itemPass = users[i][users[i].Length - 1];
+
+                    if (itemName == inputUsername && itemPass == inputPassword)
                     {
                         Console.WriteLine("Log in correct");
+                    }
+                    else
+                    {
+
                     }
                     
 
