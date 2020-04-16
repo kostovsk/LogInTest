@@ -35,10 +35,17 @@ namespace LoginTestConsoleApp
             {
                 //System.Console.WriteLine("{0}", i);
 
-                for (int j = 0; j < users[i].Length - 1; j++)
+                for (int j = 1; j < users[i].Length; j++)
                 {
                     //System.Console.WriteLine("{0}{1}", users[i][j], j == (users[i].Length - 1) ? "" : " ");
-                    System.Console.WriteLine(users[i][j]);
+                    //System.Console.WriteLine(users[i][users[i].Length - 2]);
+                    if (users[i][users[i].Length - 2] == inputUsername && users[i][users[i].Length - 1] == inputPassword)
+                    {
+                        Console.WriteLine("Log in correct");
+                    }
+                    
+
+
 
                 }
             }
