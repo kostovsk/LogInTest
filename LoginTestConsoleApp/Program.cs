@@ -16,45 +16,21 @@ namespace LoginTestConsoleApp
 
             string[][] users = GetUserPasswordArray();
 
-            foreach (string[] array in users)
-            {
-                foreach (string item in array)
-                {
-                    if (item.Contains(inputUsername))
-                    {
-                        Console.WriteLine("Username is correct.");
-                    }
-                    if (item.Contains(inputPassword))
-                    {
-                        Console.WriteLine("Password is correct.");
-                    }
-                }
-            }
 
             for (int i = 0; i < users.Length; i++)
             {
-                //System.Console.WriteLine("{0}", i);
-
-                for (int j = 1; j < users[i].Length; j++)
+                for (int j = 0; j < users[i].Length; j++)
                 {
-                    //System.Console.WriteLine("{0}{1}", users[i][j], j == (users[i].Length - 1) ? "" : " ");
-                    //System.Console.WriteLine(users[i][users[i].Length - 2]);
-
-                    var itemName = users[i][users[i].Length - 2];
-                    var itemPass = users[i][users[i].Length - 1];
-
-                    if (itemName == inputUsername && itemPass == inputPassword)
+                    if (users[i][j] == inputUsername)
                     {
-                        Console.WriteLine("Log in correct");
+                        for (int k = 0; k < users[i].Length; k++)
+                        {
+                            if (users[i][k] == inputPassword)
+                            {
+                                Console.WriteLine("Log in correct");
+                            }
+                        }
                     }
-                    else
-                    {
-
-                    }
-                    
-
-
-
                 }
             }
 
