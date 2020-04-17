@@ -16,23 +16,34 @@ namespace LoginTestConsoleApp
 
             string[][] users = GetUserPasswordArray();
 
+            //TODO: 
+            //Consider case where the username is not in the database
+            
+            //HINT: 
+            //Break the logic down into functions: 
+            //1. The first function can return a value 
+            //   that has the coordinates ([i][j]) of the inputUsername in the users array
 
             for (int i = 0; i < users.Length; i++)
             {
                 for (int j = 0; j < users[i].Length; j++)
                 {
+                    //If true, user exists in the database
                     if (users[i][j] == inputUsername)
                     {
-                        for (int k = 0; k < users[i].Length; k++)
-                        {
-                            if (users[i][k] == inputPassword)
-                            {
-                                Console.WriteLine("Log in correct");
-                            }
+                        //Let's asume that in our case, password is always the second entry
+                        string passwordInOurDatabase = users[i][j+1];
+                        if(passwordInOurDatabase == inputPassword){
+                            Console.WriteLine("Login correct");
+                        }else{
+                            //TODO: tell the user the password is incorrect
                         }
+
                     }
                 }
             }
+
+            
 
             Console.ReadLine();
         }
