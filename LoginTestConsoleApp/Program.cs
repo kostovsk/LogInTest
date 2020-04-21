@@ -16,7 +16,16 @@ namespace LoginTestConsoleApp
 
          string[][] users = GetUserPasswordArray();
 
-         validateUsername(inputUsername);
+         int result = validateUsername(inputUsername);
+
+         bool userNameIsValid;
+
+         if(result >-1)
+         {
+            userNameIsValid = true;
+         }
+
+
 
          //TODO: 
          //Consider case where the username is not in the database
@@ -70,7 +79,7 @@ namespace LoginTestConsoleApp
          int positionInArray = -1;
          int defaultReturnValue = -1;
 
-         for (int i = 0; i < users.Length; i++)
+         for (int i = 0; i < users.Length; i++ )
          {
             for (int j = 0; j < users[i].Length; j++)
             {
