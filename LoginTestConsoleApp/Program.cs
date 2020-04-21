@@ -16,6 +16,8 @@ namespace LoginTestConsoleApp
 
             string[][] users = GetUserPasswordArray();
 
+            validateUsername(inputUsername);
+
             //TODO: 
             //Consider case where the username is not in the database
 
@@ -24,7 +26,7 @@ namespace LoginTestConsoleApp
             //1. The first function can return a value 
             //   that has the coordinates ([i][j]) of the inputUsername in the users array
 
-
+            //this will be replaced by the if statement
             for (int i = 0; i < users.Length; i++)
             {
                 for (int j = 0; j < users[i].Length; j++)
@@ -50,7 +52,7 @@ namespace LoginTestConsoleApp
 
             //if (userNameIndx != null){
             // pass on indexof username to a var
-            //var userNameIndx = validateUsername(inputUsername);
+            // var userNameIndx = validateUsername(inputUsername);
             //}
             //call a second method that takes index to verify password
             //validatePassword(userNameIndx, inputPassword);
@@ -61,7 +63,7 @@ namespace LoginTestConsoleApp
             Console.ReadLine();
         }
 
-        public void validateUsername(string name)
+        public static void validateUsername(string name)
         {
             string[][] users = GetUserPasswordArray();
 
@@ -86,7 +88,8 @@ namespace LoginTestConsoleApp
             //assign string name to it and verify if 
 
             //Let's asume that in our case, password is always the second entry
-            string passwordInOurDatabase = users[userIndx + 1][j + 1];
+            //users[userIndx + 1][j + 1]
+            string passwordInOurDatabase = "none";
             if (passwordInOurDatabase == pass)
             {
                 Console.WriteLine("Login correct");
