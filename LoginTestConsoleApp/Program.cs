@@ -63,7 +63,7 @@ namespace LoginTestConsoleApp
             Console.ReadLine();
         }
 
-        public static void validateUsername(string name)
+        public static int validateUsername(string name)
         {
             string[][] users = GetUserPasswordArray();
 
@@ -75,7 +75,7 @@ namespace LoginTestConsoleApp
                     if (users[i][j] == name)
                     {
                         //return indexOf
-                        Console.WriteLine(Array.IndexOf(users, name));
+                        return i;
                     }
                 }
             }
