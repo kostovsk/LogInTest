@@ -29,18 +29,17 @@ namespace LoginTestConsoleApp
                 userNameIsValid = true;
                 if (userNameIsValid == true)
                 {
-                    for (int j = 1; j < users[result].Length; j++)
+                    //for (int j = 1; j < users[result].Length; j++)
+
+                    string passInDb = users[result][1];
+                    if (passInDb == inputPassword)
                     {
-                        string passInDb = users[result][j];
-                        if (passInDb == inputPassword)
-                        {
-                            Console.WriteLine("Login correct");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Password is incorrect");
-                            //TODO: tell the user the password is incorrect
-                        }
+                        Console.WriteLine("Login correct");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Password is incorrect");
+                        //TODO: tell the user the password is incorrect
                     }
                 }
             }
