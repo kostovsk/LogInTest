@@ -18,10 +18,6 @@ namespace LoginTestConsoleApp
 
             int result = validateUsername(inputUsername);
 
-            Console.WriteLine(result);
-
-            Console.WriteLine(users[result][1]);
-
             bool userNameIsValid;
 
             if (result > -1)
@@ -39,7 +35,6 @@ namespace LoginTestConsoleApp
                     else
                     {
                         Console.WriteLine("Password is incorrect");
-                        //TODO: tell the user the password is incorrect
                     }
                 }
             }
@@ -98,16 +93,13 @@ namespace LoginTestConsoleApp
             string[][] users = GetUserPasswordArray();
 
             int positionInArray = -1;
-            //int defaultReturnValue = -1;
 
             for (int i = 0; i < users.Length; i++)
             {
                 for (int j = 0; j < users[i].Length; j++)
                 {
-                    //If true, user exists in the database
                     if (users[i][j] == name)
                     {
-                        //return indexOf
                         positionInArray = i;
                         break;
                     }
