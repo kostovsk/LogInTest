@@ -18,25 +18,28 @@ namespace LoginTestConsoleApp
 
             int result = validateUsername(inputUsername);
 
+
             bool userNameIsValid;
 
             if (result > -1)
             {
-                userNameIsValid = true;
-                if (userNameIsValid == true)
-                {
-                    //for (int j = 1; j < users[result].Length; j++)
+                validatePassword(result, inputPassword);
 
-                    string passInDb = users[result][1];
-                    if (passInDb == inputPassword)
-                    {
-                        Console.WriteLine("Login correct");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Password is incorrect");
-                    }
-                }
+                //userNameIsValid = true;
+                //if (userNameIsValid == true)
+                //{
+                //    //for (int j = 1; j < users[result].Length; j++)
+
+                //    string passInDb = users[result][1];
+                //    if (passInDb == inputPassword)
+                //    {
+                //        Console.WriteLine("Login correct");
+                //    }
+                //    else
+                //    {
+                //        Console.WriteLine("Password is incorrect");
+                //    }
+                //}
             }
             else
             {
@@ -115,20 +118,15 @@ namespace LoginTestConsoleApp
         public static void validatePassword(int userIndx, string pass)
         {
             string[][] users = GetUserPasswordArray();
-            //determine how to pass index of username, add 1 element to
-            //assign string name to it and verify if 
-            for (int j = 0; j < users[userIndx].Length; j++)
+
+            string passInDb = users[userIndx][1];
+            if (passInDb == pass)
             {
-                string passInDb = users[userIndx][j + 1];
-                if (passInDb == pass)
-                {
-                    Console.WriteLine("Login correct");
-                }
-                else
-                {
-                    Console.WriteLine("Password is incorrect");
-                    //TODO: tell the user the password is incorrect
-                }
+                Console.WriteLine("Login correct");
+            }
+            else
+            {
+                Console.WriteLine("Password is incorrect");
             }
             return;
         }
