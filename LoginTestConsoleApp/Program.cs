@@ -3,153 +3,134 @@ using System.Collections.Generic;
 
 namespace LoginTestConsoleApp
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
+   class Program
+   {
+      public static readonly int maxFailedLoginAttempts = 3;
 
-            Console.WriteLine("Enter your username:");
-            string inputUsername = Console.ReadLine();
+      static void Main(string[] args)
+      {
+         bool userNameIsValid = false;
+         bool passwordIsValid = false;
+         int failedLoginAttempts = 0;
+         
 
-            Console.WriteLine("Enter your password:");
-            string inputPassword = Console.ReadLine();
+         Console.WriteLine("Enter your username:");
+         string inputUsername = Console.ReadLine();
 
-            string[][] users = GetUserPasswordArray();
+         Console.WriteLine("Enter your password:");
+         string inputPassword = Console.ReadLine();
+         
 
-            int result = validateUsername(inputUsername);
 
+         int indexOfUserName = getUsernameIndex(inputUsername);
+         if (indexOfUserName > -1)
+         {
+            userNameIsValid = true;
+         }
+         
 
-            bool userNameIsValid;
-
-            if (result > -1)
+         if (userNameIsValid == true)
+         {
+            passwordIsValid = isValidPassword(indexOfUserName, inputPassword);
+            if (passwordIsValid)
             {
-                validatePassword(result, inputPassword);
-
-                //userNameIsValid = true;
-                //if (userNameIsValid == true)
-                //{
-                //    //for (int j = 1; j < users[result].Length; j++)
-
-                //    string passInDb = users[result][1];
-                //    if (passInDb == inputPassword)
-                //    {
-                //        Console.WriteLine("Login correct");
-                //    }
-                //    else
-                //    {
-                //        Console.WriteLine("Password is incorrect");
-                //    }
-                //}
+               Console.WriteLine("Login correct");
             }
             else
             {
-                Console.WriteLine("Username is not in database");
+               Console.WriteLine("Password is incorrect");
+               /*
+                * 1. Promp the user to re-enter password
+                * 2. Try to add logic where you can limit bad entries to up to three attempts
+                */
             }
+         }
+         else
+         {
+            Console.WriteLine("Username is not in database");
+            /*
+             * 1. Promp the user to re-enter username
+             * 2. Try to add logic where you can limit bad entries to up to three attempts
+             */
+         }
 
-            //TODO: 
-            //Consider case where the username is not in the database
+         Console.ReadLine();
+      }
 
-            //HINT: 
-            //Break the logic down into functions: 
-            //1. The first function can return a value 
-            //   that has the coordinates ([i][j]) of the inputUsername in the users array
+      public static int getUsernameIndex(string name)
+      {
+         string[][] users = GetUserPasswordArray();
 
-            //this will be replaced by the if statement
-            //for (int i = 0; i < users.Length; i++)
-            //{
-            //    for (int j = 0; j < users[i].Length; j++)
-            //    {
-            //        //If true, user exists in the database
-            //        if (users[i][j] == inputUsername)
-            //        {
-            //            //Let's asume that in our case, password is always the second entry
-            //            string passwordInOurDatabase = users[i][j + 1];
-            //            if (passwordInOurDatabase == inputPassword)
-            //            {
-            //                Console.WriteLine("Login correct");
-            //            }
-            //            else
-            //            {
-            //                Console.WriteLine("Password is incorrect");
-            //                //TODO: tell the user the password is incorrect
-            //            }
+         int positionInArray = -1;
 
-            //        }
-            //    }
-            //}
-
-            //if (userNameIndx != null){
-            // pass on indexof username to a var
-            // var userNameIndx = validateUsername(inputUsername);
-            //}
-            //call a second method that takes index to verify password
-            //validatePassword(userNameIndx, inputPassword);
-            //else{
-            //Console.WriteLine("The username is not in the database");
-            //}
-
-            Console.ReadLine();
-        }
-
-        public static int validateUsername(string name)
-        {
-            string[][] users = GetUserPasswordArray();
-
-            int positionInArray = -1;
-
-            for (int i = 0; i < users.Length; i++)
+         for (int i = 0; i < users.Length; i++)
+         {
+            for (int j = 0; j < users[i].Length; j++)
             {
-                for (int j = 0; j < users[i].Length; j++)
-                {
-                    if (users[i][j] == name)
-                    {
-                        positionInArray = i;
-                        break;
-                    }
-                }
-                if (positionInArray > -1)
-                {
-                    break;
-                }
+               if (users[i][j] == name)
+               {
+                  positionInArray = i;
+                  break;
+               }
             }
-            return positionInArray;
-        }
-
-        public static void validatePassword(int userIndx, string pass)
-        {
-            string[][] users = GetUserPasswordArray();
-
-            string passInDb = users[userIndx][1];
-            if (passInDb == pass)
+            if (positionInArray > -1)
             {
-                Console.WriteLine("Login correct");
+               break;
             }
-            else
-            {
-                Console.WriteLine("Password is incorrect");
-            }
-            return;
-        }
+         }
+         return positionInArray;
+      }
 
-        private static string[][] GetUserPasswordArray()
-        {
-            string[][] arr = new string[3][];
+      public static void validatePassword(int userIndx, string pass)
+      {
+         string[][] users = GetUserPasswordArray();
 
-            arr[0] = new string[2];
-            arr[0][0] = "kostovsk";
-            arr[0][1] = "123";
+         string passInDb = users[userIndx][1];
+         if (passInDb == pass)
+         {
+            Console.WriteLine("Login correct");
+         }
+         else
+         {
+            Console.WriteLine("Password is incorrect");
+         }
+         return;
+      }
+      public static bool isValidPassword(int userIndx, string pass)
+      {
+         string[][] users = GetUserPasswordArray();
 
-            arr[1] = new string[2];
-            arr[1][0] = "skostov";
-            arr[1][1] = "456";
+         string passInDb = users[userIndx][1];
+         if (passInDb == pass)
+         {
+            return true;
+         }
+         else
+         {
+            return false;
+         }
+
+      }
+
+      private static string[][] GetUserPasswordArray()
+      {
+         string[][] arr = new string[3][];
+
+         arr[0] = new string[2];
+         arr[0][0] = "kostovsk";
+         arr[0][1] = "123";
+
+         arr[1] = new string[2];
+         arr[1][0] = "skostov";
+         arr[1][1] = "456";
 
 
-            arr[2] = new string[2];
-            arr[2][0] = "stoichokostov";
-            arr[2][1] = "789";
+         arr[2] = new string[2];
+         arr[2][0] = "stoichokostov";
+         arr[2][1] = "789";
 
-            return arr;
-        }
+         return arr;
+      }
 
-    }
+   }
 }
