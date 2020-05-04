@@ -20,7 +20,7 @@ namespace LoginTestConsoleApp
             Console.WriteLine("Enter your password:");
             string inputPassword = Console.ReadLine();
 
-            while (failedLoginAttempts < maxFailedLoginAttempts)
+            while (failedLoginAttempts <= maxFailedLoginAttempts)
             {
                 int indexOfUserName = getUsernameIndex(inputUsername);
                 if (indexOfUserName > -1)
@@ -32,7 +32,7 @@ namespace LoginTestConsoleApp
                 if (userNameIsValid == true)
                 {
                     
-                    while (failedPassAttempts < maxFailedLoginAttempts)
+                    while (failedPassAttempts <= maxFailedLoginAttempts)
                     {
                         passwordIsValid = isValidPassword(indexOfUserName, inputPassword);
                         if (passwordIsValid)
