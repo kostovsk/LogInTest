@@ -45,6 +45,9 @@ namespace LoginTestConsoleApp
                          * 1. Promp the user to re-enter password
                          * 2. Try to add logic where you can limit bad entries to up to three attempts
                          */
+                        failedLoginAttempts = 0;
+                        Console.WriteLine();
+                        Console.WriteLine("Please re-enter your password:");
                         inputPassword = Console.ReadLine();
                         failedLoginAttempts += 1;
                     }
@@ -59,12 +62,10 @@ namespace LoginTestConsoleApp
                     Console.WriteLine();
                     Console.WriteLine("Please re-enter your username:");
                     inputUsername = Console.ReadLine();
-
                     failedLoginAttempts += 1;
                 }
             }
             
-
             Console.ReadLine();
         }
 
