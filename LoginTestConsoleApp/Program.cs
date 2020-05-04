@@ -12,8 +12,7 @@ namespace LoginTestConsoleApp
             bool userNameIsValid = false;
             bool passwordIsValid = false;
             int failedLoginAttempts = 0;
-
-            Console.WriteLine(maxFailedLoginAttempts);
+            int failedPassAttempts = 0;
 
             Console.WriteLine("Enter your username:");
             string inputUsername = Console.ReadLine();
@@ -32,35 +31,29 @@ namespace LoginTestConsoleApp
 
                 if (userNameIsValid == true)
                 {
-                    passwordIsValid = isValidPassword(indexOfUserName, inputPassword);
-                    if (passwordIsValid)
+                    
+                    while (failedPassAttempts < maxFailedLoginAttempts)
                     {
-                        Console.WriteLine("Login correct");
-                        break;
+                        passwordIsValid = isValidPassword(indexOfUserName, inputPassword);
+                        if (passwordIsValid)
+                        {
+                            Console.WriteLine("Login correct");
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Password is incorrect. Please try again:");
+                            inputPassword = Console.ReadLine();
+                            failedPassAttempts += 1;
+                        }
                     }
-                    else
-                    {
-                        Console.WriteLine("Password is incorrect");
-                        /*
-                         * 1. Promp the user to re-enter password
-                         * 2. Try to add logic where you can limit bad entries to up to three attempts
-                         */
-                        failedLoginAttempts = 0;
-                        Console.WriteLine();
-                        Console.WriteLine("Please re-enter your password:");
-                        inputPassword = Console.ReadLine();
-                        failedLoginAttempts += 1;
-                    }
+                    break;
                 }
                 else
                 {
-                    Console.WriteLine("Username is not in database");
-                    /*
-                     * 1. Promp the user to re-enter username
-                     * 2. Try to add logic where you can limit bad entries to up to three attempts
-                     */
                     Console.WriteLine();
-                    Console.WriteLine("Please re-enter your username:");
+                    Console.WriteLine("Username is not in database. Please try again:");
                     inputUsername = Console.ReadLine();
                     failedLoginAttempts += 1;
                 }
