@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogInTest", "LogInTest\LogInTest.csproj", "{0FDB4489-BC52-4FA1-95FE-3DDCCFCA73BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginTestConsoleApp", "LoginTestConsoleApp\LoginTestConsoleApp.csproj", "{6C9B7E9F-AFF0-49C3-B624-0F61D37622B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoginTestConsoleApp", "LoginTestConsoleApp\LoginTestConsoleApp.csproj", "{6C9B7E9F-AFF0-49C3-B624-0F61D37622B8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginTestWindowsFormsApp1", "LoginTestWindowsFormsApp1\LoginTestWindowsFormsApp1.csproj", "{C9DB2DD3-D923-4540-B7BF-A8687854AFED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogInTestWindowsFormsApp", "LogInTestWindowsFormsApp\LogInTestWindowsFormsApp.csproj", "{6F9DDD5E-F3D9-496E-BE16-76D51AB58766}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{C9DB2DD3-D923-4540-B7BF-A8687854AFED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9DB2DD3-D923-4540-B7BF-A8687854AFED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9DB2DD3-D923-4540-B7BF-A8687854AFED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F9DDD5E-F3D9-496E-BE16-76D51AB58766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F9DDD5E-F3D9-496E-BE16-76D51AB58766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F9DDD5E-F3D9-496E-BE16-76D51AB58766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F9DDD5E-F3D9-496E-BE16-76D51AB58766}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
