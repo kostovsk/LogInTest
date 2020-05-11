@@ -89,6 +89,7 @@ namespace LogInTestWindowsFormsApp
                             failedPassAttempts += 1;
                             MessageBox.Show("Password is incorrect. Please try again:");
                             textBox2.Text = String.Empty;
+                            textBox2.Focus();
                         }
                     }
                     else
