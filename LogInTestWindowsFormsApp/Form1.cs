@@ -86,6 +86,7 @@ namespace LogInTestWindowsFormsApp
                   }
                   else
                   {
+<<<<<<< HEAD
                      MessageBox.Show("Password is incorrect. Please try again:");
                      textBox2.Text = String.Empty;
                      textBox2.Focus();
@@ -99,10 +100,24 @@ namespace LogInTestWindowsFormsApp
             }
             else
             {               
+=======
+                     failedPassAttempts += 1;
+                     MessageBox.Show("Password is incorrect. Please try again:");
+                     textBox2.Text = String.Empty;
+                     textBox2.Focus();
+                  }
+               }
+   
+            }
+            else
+            {
+               failedLoginAttempts += 1;
+>>>>>>> 4bb1d87e9147177a134968a942bcaa181ce0b6cf
                MessageBox.Show("Username is not in database. Please try again:");
                textBox1.Text = String.Empty;
                textBox2.Text = String.Empty;
                textBox1.Focus();
+<<<<<<< HEAD
                failedLoginAttempts += 1;
             }
          }
@@ -120,6 +135,25 @@ namespace LogInTestWindowsFormsApp
 
          int positionInArray = -1;
 
+=======
+            }
+         }
+
+         if(failedLoginAttempts >=3 || failedPassAttempts >=3)
+         {
+            Application.Exit();
+         }
+
+      }
+
+
+      public static int getUsernameIndex(string name)
+      {
+         string[][] users = GetUserPasswordArray();
+
+         int positionInArray = -1;
+
+>>>>>>> 4bb1d87e9147177a134968a942bcaa181ce0b6cf
          for (int i = 0; i < users.Length; i++)
          {
             for (int j = 0; j < users[i].Length; j++)
@@ -154,6 +188,7 @@ namespace LogInTestWindowsFormsApp
          }
       }
 
+<<<<<<< HEAD
       private static string[][] GetUserPasswordArray()
       {
          string[][] arr = new string[3][];
@@ -171,6 +206,30 @@ namespace LogInTestWindowsFormsApp
          arr[2][0] = "stoichokostov";
          arr[2][1] = "789";
 
+=======
+      private static string[][] arr = null;
+      private static string[][] GetUserPasswordArray()
+      {
+         if(arr == null)
+         {
+            arr = new string[3][];
+
+            arr[0] = new string[2];
+            arr[0][0] = "kostovsk";
+            arr[0][1] = "123";
+
+            arr[1] = new string[2];
+            arr[1][0] = "skostov";
+            arr[1][1] = "456";
+
+
+            arr[2] = new string[2];
+            arr[2][0] = "stoichokostov";
+            arr[2][1] = "789";
+
+            
+         }
+>>>>>>> 4bb1d87e9147177a134968a942bcaa181ce0b6cf
          return arr;
       }
    }
