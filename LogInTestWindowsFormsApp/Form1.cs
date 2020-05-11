@@ -15,6 +15,8 @@ namespace LogInTestWindowsFormsApp
         public Form1()
         {
             InitializeComponent();
+            textBox1.KeyDown += textBox1_KeyDown;
+            textBox2.KeyDown += textBox2_KeyDown;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -24,7 +26,7 @@ namespace LogInTestWindowsFormsApp
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -46,7 +48,7 @@ namespace LogInTestWindowsFormsApp
             {
                 button1.PerformClick();
             }
-        }
+        } 
 
         public static readonly int maxFailedLoginAttempts = 3;
 
