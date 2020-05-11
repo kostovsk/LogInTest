@@ -32,18 +32,20 @@ namespace LogInTestWindowsFormsApp
 
         }
 
+        public static readonly int maxFailedLoginAttempts = 3;
+
+        bool userNameIsValid = false;
+        bool passwordIsValid = false;
+        int failedLoginAttempts = 0;
+        int failedPassAttempts = 0;
+
         private void button1_Click(object sender, EventArgs e)
         {
-            bool userNameIsValid = false;
-            bool passwordIsValid = false;
-            int maxFailedLoginAttempts = 3;
-            int failedLoginAttempts = 0;
-            int failedPassAttempts = 0;
-
+            
             string inputUsername = textBox1.Text;
             string inputPassword = textBox2.Text;
 
-            while (failedLoginAttempts <= maxFailedLoginAttempts)
+            if (failedLoginAttempts < maxFailedLoginAttempts)
             {
                 int indexOfUserName = getUsernameIndex(inputUsername);
                 if (indexOfUserName > -1)
@@ -55,22 +57,24 @@ namespace LogInTestWindowsFormsApp
                 if (userNameIsValid == true)
                 {
 
-                    while (failedPassAttempts <= maxFailedLoginAttempts)
+                    if (failedPassAttempts < maxFailedLoginAttempts)
                     {
                         passwordIsValid = isValidPassword(indexOfUserName, inputPassword);
                         if (passwordIsValid)
                         {
                             MessageBox.Show("Login correct");
-                            break;
+                            Application.Exit();
                         }
                         else
                         {
                             failedPassAttempts += 1;
                             MessageBox.Show("Password is incorrect. Please try again:");
-                            inputPassword = Console.ReadLine();
                         }
                     }
-                    break;
+                    else
+                    {
+                        Application.Exit();
+                    }
                 }
                 else
                 {
@@ -78,6 +82,11 @@ namespace LogInTestWindowsFormsApp
                     MessageBox.Show("Username is not in database. Please try again:");
                 }
             }
+            else
+            {
+                Application.Exit();
+            }
+            
         }
 
         public static int getUsernameIndex(string name)
