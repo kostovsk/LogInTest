@@ -17,6 +17,7 @@ namespace LogInTestWindowsFormsApp
             InitializeComponent();
             textBox1.KeyDown += textBox1_KeyDown;
             textBox2.KeyDown += textBox2_KeyDown;
+            textBox2.PasswordChar = '●';
         }
 
         private void Form1_Load(object sender, EventArgs e)
