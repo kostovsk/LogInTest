@@ -32,6 +32,22 @@ namespace LogInTestWindowsFormsApp
 
         }
 
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox2.Focus();
+            }
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.PerformClick();
+            }
+        }
+
         public static readonly int maxFailedLoginAttempts = 3;
 
         bool userNameIsValid = false;
@@ -88,6 +104,7 @@ namespace LogInTestWindowsFormsApp
             }
             
         }
+
 
         public static int getUsernameIndex(string name)
         {
