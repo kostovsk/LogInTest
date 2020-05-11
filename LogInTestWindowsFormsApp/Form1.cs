@@ -88,6 +88,7 @@ namespace LogInTestWindowsFormsApp
                         {
                             failedPassAttempts += 1;
                             MessageBox.Show("Password is incorrect. Please try again:");
+                            textBox2.Text = String.Empty;
                         }
                     }
                     else
@@ -99,6 +100,9 @@ namespace LogInTestWindowsFormsApp
                 {
                     failedLoginAttempts += 1;
                     MessageBox.Show("Username is not in database. Please try again:");
+                    textBox1.Text = String.Empty;
+                    textBox2.Text = String.Empty;
+                    textBox1.Focus();
                 }
             }
             else
