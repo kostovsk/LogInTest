@@ -82,6 +82,10 @@ namespace LogInTestWindowsFormsApp
                   if (passwordIsValid)
                   {
                      MessageBox.Show("Login correct");
+                     using (ProfilePage pp = new ProfilePage())
+                     {
+                        pp.ShowDialog();
+                     }
                      Application.Exit();
                   }
                   else
