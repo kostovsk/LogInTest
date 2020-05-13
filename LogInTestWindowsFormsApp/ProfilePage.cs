@@ -12,14 +12,11 @@ namespace LogInTestWindowsFormsApp
 {
    public partial class ProfilePage : Form
    {
-      public ProfilePage()
+      
+      public ProfilePage(string text)
       {
          InitializeComponent();
-      }
-
-      private void ProfilePage_Load(object sender, EventArgs e)
-      {
-
+         label2.Text = text;
       }
 
       private void button1_Click(object sender, EventArgs e)

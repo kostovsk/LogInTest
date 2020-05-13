@@ -96,6 +96,7 @@
          this.Controls.Add(this.textBox2);
          this.Controls.Add(this.textBox1);
          this.Name = "Form1";
+         this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          this.Text = "Form1";
          this.Load += new System.EventHandler(this.Form1_Load);
          this.ResumeLayout(false);
@@ -104,12 +105,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label username;
         private System.Windows.Forms.Label password;
-    }
+      public System.Windows.Forms.TextBox textBox1;
+   }
 }
 

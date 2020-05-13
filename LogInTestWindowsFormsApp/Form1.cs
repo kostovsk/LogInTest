@@ -82,10 +82,8 @@ namespace LogInTestWindowsFormsApp
                   if (passwordIsValid)
                   {
                      MessageBox.Show("Login correct");
-                     using (ProfilePage pp = new ProfilePage())
-                     {
-                        pp.ShowDialog();
-                     }
+                     ProfilePage p = new ProfilePage(textBox1.Text);
+                     p.ShowDialog();
                      Application.Exit();
                   }
                   else
@@ -114,7 +112,6 @@ namespace LogInTestWindowsFormsApp
          }
 
       }
-
 
       public static int getUsernameIndex(string name)
       {
