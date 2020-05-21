@@ -136,14 +136,20 @@ namespace LogInTestWindowsFormsApp
 
       }
 
-      public static Users()
+
+      //Methods have to be either void or have retun a return type 
+      /*
+       * Method access level: public
+       * Method return type is List<User> (List of User) 
+       */
+      public List<User> Users()
       {
          List<User> UserList = new List<User>();
          UserList.Add(new User("kostovsk", "123"));
          UserList.Add(new User("skostov", "456"));
          UserList.Add(new User("stoichokostov", "789"));
 
-         return;
+         return UserList;
       }
 
       public static int getUsernameIndex(string name)
