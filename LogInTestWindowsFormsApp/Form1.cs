@@ -114,12 +114,14 @@ namespace LogInTestWindowsFormsApp
 
       }
 
-      public static void Users()
+      public static Users()
       {
          List<User> UserList = new List<User>();
          UserList.Add(new User("kostovsk", "123"));
          UserList.Add(new User("skostov", "456"));
          UserList.Add(new User("stoichokostov", "789"));
+
+         return;
       }
 
       public static int getUsernameIndex(string name)
