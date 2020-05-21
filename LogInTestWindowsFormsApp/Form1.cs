@@ -57,6 +57,7 @@ namespace LogInTestWindowsFormsApp
       bool passwordIsValid = false;
       int failedLoginAttempts = 0;
       int failedPassAttempts = 0;
+      
 
       private void button1_Click(object sender, EventArgs e)
       {
@@ -111,6 +112,14 @@ namespace LogInTestWindowsFormsApp
             Application.Exit();
          }
 
+      }
+
+      public static void Users()
+      {
+         List<User> UserList = new List<User>();
+         UserList.Add(new User("kostovsk", "123"));
+         UserList.Add(new User("skostov", "456"));
+         UserList.Add(new User("stoichokostov", "789"));
       }
 
       public static int getUsernameIndex(string name)

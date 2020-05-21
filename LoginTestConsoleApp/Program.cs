@@ -14,6 +14,28 @@ namespace LoginTestConsoleApp
          int failedLoginAttempts = 0;
          int failedPassAttempts = 0;
 
+         List<User> UserList = new List<User>();
+
+         User user1 = new User("kostovsk", "123");
+         UserList.Add(user1);
+
+         User user2 = new User("skostov", "456");
+         UserList.Add(user2);
+
+         User user3 = new User("stoichokostov", "789");
+         UserList.Add(user3);
+
+         foreach (var user in UserList)
+         {
+            Console.WriteLine(user);
+         }
+
+         //UserList.Add(new User("kostovsk", "123"));
+         //UserList.Add(new User("skostov", "456"));
+         //UserList.Add(new User("stoichokostov", "789"));
+
+         Console.WriteLine();
+
          Console.WriteLine("Enter your username:");
          string inputUsername = Console.ReadLine();
 
