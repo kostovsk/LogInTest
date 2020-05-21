@@ -67,6 +67,28 @@ namespace LogInTestWindowsFormsApp
 
          if (failedLoginAttempts < maxFailedLoginAttempts)
          {
+
+
+            /*####################################*/
+            #region "Examples"
+
+            UserFactory factory = new UserFactory();
+
+            //option 1:
+            List<User> listOfUsersFromFactory = factory.MakeAndReturnAListOfUsers();
+
+            //option 2:
+            List<User> listOfUsersPassedByReference = new List<User>();
+            factory.PopulateListOfUsers(listOfUsersPassedByReference);
+
+            int testCountFirstList = listOfUsersFromFactory.Count;
+            int testCountSecondList = listOfUsersPassedByReference.Count;
+
+            #endregion "Examples"
+            /*####################################*/
+
+
+
             int indexOfUserName = getUsernameIndex(inputUsername);
             if (indexOfUserName > -1)
             {
