@@ -59,6 +59,7 @@ namespace LogInTestWindowsFormsApp
       int failedPassAttempts = 0;
       
 
+
       private void button1_Click(object sender, EventArgs e)
       {
 
@@ -78,11 +79,16 @@ namespace LogInTestWindowsFormsApp
             List<User> listOfUsersFromFactory = factory.MakeAndReturnAListOfUsers();
 
             //option 2:
-            List<User> listOfUsersPassedByReference = new List<User>();
-            factory.PopulateListOfUsers(listOfUsersPassedByReference);
+            //List<User> listOfUsersPassedByReference = new List<User>();
+            factory.PopulateListOfUsers(listOfUsersFromFactory);
+
+            foreach(User user in listOfUsersFromFactory)
+            {
+               Console.WriteLine(user.Name);
+            }
 
             int testCountFirstList = listOfUsersFromFactory.Count;
-            int testCountSecondList = listOfUsersPassedByReference.Count;
+            int testCountSecondList = listOfUsersFromFactory.Count;
 
             #endregion "Examples"
             /*####################################*/
@@ -136,16 +142,6 @@ namespace LogInTestWindowsFormsApp
 
       }
 
-      public static Users()
-      {
-         List<User> UserList = new List<User>();
-         UserList.Add(new User("kostovsk", "123"));
-         UserList.Add(new User("skostov", "456"));
-         UserList.Add(new User("stoichokostov", "789"));
-
-         return;
-      }
-
       public static int getUsernameIndex(string name)
       {
          string[][] users = GetUserPasswordArray();
@@ -170,6 +166,24 @@ namespace LogInTestWindowsFormsApp
          return positionInArray;
       }
 
+      public static bool validateUserName(string inputName)
+      {
+         UserFactory factory = new UserFactory();
+         List<User> listOfUsersFromFactory = factory.MakeAndReturnAListOfUsers();
+         factory.PopulateListOfUsers(listOfUsersFromFactory);
+
+         foreach (User user in listOfUsersFromFactory)
+         {
+            if(inputName == user.Name)
+            {
+               return true;
+            }
+            else
+            {
+               return false;
+            }
+         }
+      }
 
       public static bool isValidPassword(int userIndx, string pass)
       {

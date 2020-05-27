@@ -29,9 +29,9 @@ namespace LogInTestWindowsFormsApp
       /// <param name="listOfUsers"></param>
       public void PopulateListOfUsers(List<User> listOfUsers)
       {
-         listOfUsers.Add(new User("kostovsk", "123"));
-         listOfUsers.Add(new User("skostov", "456"));
-         listOfUsers.Add(new User("stoichokostov", "789"));
+         listOfUsers.Add(new User("kostovsk3", "1011"));
+         listOfUsers.Add(new User("skostov2", "1271"));
+         listOfUsers.Add(new User("stoichokostov4", "6191"));
       }
    }
 }
