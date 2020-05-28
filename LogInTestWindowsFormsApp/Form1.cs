@@ -103,6 +103,8 @@ namespace LogInTestWindowsFormsApp
 
 
             //if (userNameIsValid == true)
+            // temporary substitute just to test
+            // logic not correct, method returns only true/false
             if (validateUserName(inputUsername))
             {
 
@@ -172,7 +174,8 @@ namespace LogInTestWindowsFormsApp
          UserFactory factory = new UserFactory();
          List<User> listOfUsersFromFactory = factory.MakeAndReturnAListOfUsers();
          factory.PopulateListOfUsers(listOfUsersFromFactory);
-
+         // check if input is in list
+         // note the location of the value in list that match input????
          foreach (User user in listOfUsersFromFactory)
          {
             if (inputName == user.Name)
