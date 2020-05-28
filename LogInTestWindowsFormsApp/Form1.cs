@@ -22,17 +22,14 @@ namespace LogInTestWindowsFormsApp
 
       private void Form1_Load(object sender, EventArgs e)
       {
-
       }
 
       private void textBox1_TextChanged(object sender, EventArgs e)
       {
-
       }
 
       private void textBox2_TextChanged(object sender, EventArgs e)
       {
-
       }
 
       private void textBox1_KeyDown(object sender, KeyEventArgs e)
@@ -57,8 +54,6 @@ namespace LogInTestWindowsFormsApp
       bool passwordIsValid = false;
       int failedLoginAttempts = 0;
       int failedPassAttempts = 0;
-      
-
 
       private void button1_Click(object sender, EventArgs e)
       {
@@ -147,8 +142,7 @@ namespace LogInTestWindowsFormsApp
       }
 
       public static string ValidateUserName(string inputName, List<User> inputList)
-      {
- 
+      { 
          foreach (User user in inputList)
          {
             if (inputName == user.Name)
@@ -160,8 +154,7 @@ namespace LogInTestWindowsFormsApp
       }
 
       public static string ValidatePassword(string result, List<User> inputList)
-      {
-         
+      {         
          foreach (User user in inputList)
          {
             if (result == user.Name)
