@@ -102,7 +102,8 @@ namespace LogInTestWindowsFormsApp
             }
 
 
-            if (userNameIsValid == true)
+            //if (userNameIsValid == true)
+            if (validateUserName(inputUsername))
             {
 
                if (failedPassAttempts < maxFailedLoginAttempts)
@@ -174,15 +175,12 @@ namespace LogInTestWindowsFormsApp
 
          foreach (User user in listOfUsersFromFactory)
          {
-            if(inputName == user.Name)
+            if (inputName == user.Name)
             {
                return true;
             }
-            else
-            {
-               return false;
-            }
          }
+         return false;
       }
 
       public static bool isValidPassword(int userIndx, string pass)
