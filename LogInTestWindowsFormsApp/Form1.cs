@@ -69,49 +69,25 @@ namespace LogInTestWindowsFormsApp
          if (failedLoginAttempts < maxFailedLoginAttempts)
          {
 
-
-            /*####################################*/
-            #region "Examples"
-
-            UserFactory factory = new UserFactory();
-
-            //option 1:
-            List<User> listOfUsersFromFactory = factory.MakeAndReturnAListOfUsers();
-
-            //option 2:
-            //List<User> listOfUsersPassedByReference = new List<User>();
-            factory.PopulateListOfUsers(listOfUsersFromFactory);
-
-            foreach(User user in listOfUsersFromFactory)
-            {
-               Console.WriteLine(user.Name);
-            }
-
-            int testCountFirstList = listOfUsersFromFactory.Count;
-            int testCountSecondList = listOfUsersFromFactory.Count;
-
-            #endregion "Examples"
-            /*####################################*/
-
-
-
             int indexOfUserName = getUsernameIndex(inputUsername);
             if (indexOfUserName > -1)
             {
                userNameIsValid = true;
             }
 
-            string result = ValidateUserName(inputUsername);
+            UserFactory factory = new UserFactory();
+            List<User> listOfUsersFromFactory = factory.MakeAndReturnAListOfUsers();
+            factory.PopulateListOfUsers(listOfUsersFromFactory);
+
+            string result = ValidateUserName(inputUsername, listOfUsersFromFactory);
             //if (userNameIsValid == true)
-            // temporary substitute just to test
-            // logic not correct, method returns only true/false
             if (result != null)
             {
 
                if (failedPassAttempts < maxFailedLoginAttempts)
                {
                   //passwordIsValid = isValidPassword(indexOfUserName, inputPassword);
-                  string validPassword = ValidatePassword(result);
+                  string validPassword = ValidatePassword(result, listOfUsersFromFactory);
                   if (validPassword == inputPassword)
                   {
                      MessageBox.Show("Login correct");
@@ -170,14 +146,10 @@ namespace LogInTestWindowsFormsApp
          return positionInArray;
       }
 
-      public static string ValidateUserName(string inputName)
+      public static string ValidateUserName(string inputName, List<User> inputList)
       {
-         UserFactory factory = new UserFactory();
-         List<User> listOfUsersFromFactory = factory.MakeAndReturnAListOfUsers();
-         factory.PopulateListOfUsers(listOfUsersFromFactory);
-         // check if input is in list
-         // note the location of the value in list that match input????
-         foreach (User user in listOfUsersFromFactory)
+ 
+         foreach (User user in inputList)
          {
             if (inputName == user.Name)
             {
@@ -187,14 +159,10 @@ namespace LogInTestWindowsFormsApp
          return null;
       }
 
-      public static string ValidatePassword(string result)
+      public static string ValidatePassword(string result, List<User> inputList)
       {
-         UserFactory factory = new UserFactory();
-         List<User> listOfUsersFromFactory = factory.MakeAndReturnAListOfUsers();
-         factory.PopulateListOfUsers(listOfUsersFromFactory);
-         // check if input is in list
-         // note the location of the value in list that match input????
-         foreach (User user in listOfUsersFromFactory)
+         
+         foreach (User user in inputList)
          {
             if (result == user.Name)
             {
