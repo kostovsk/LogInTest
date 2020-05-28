@@ -64,24 +64,16 @@ namespace LogInTestWindowsFormsApp
          if (failedLoginAttempts < maxFailedLoginAttempts)
          {
 
-            int indexOfUserName = getUsernameIndex(inputUsername);
-            if (indexOfUserName > -1)
-            {
-               userNameIsValid = true;
-            }
-
             UserFactory factory = new UserFactory();
             List<User> listOfUsersFromFactory = factory.MakeAndReturnAListOfUsers();
             factory.PopulateListOfUsers(listOfUsersFromFactory);
 
             string result = ValidateUserName(inputUsername, listOfUsersFromFactory);
-            //if (userNameIsValid == true)
             if (result != null)
             {
 
                if (failedPassAttempts < maxFailedLoginAttempts)
                {
-                  //passwordIsValid = isValidPassword(indexOfUserName, inputPassword);
                   string validPassword = ValidatePassword(result, listOfUsersFromFactory);
                   if (validPassword == inputPassword)
                   {
@@ -117,6 +109,7 @@ namespace LogInTestWindowsFormsApp
 
       }
 
+
       public static int getUsernameIndex(string name)
       {
          string[][] users = GetUserPasswordArray();
@@ -139,6 +132,18 @@ namespace LogInTestWindowsFormsApp
             }
          }
          return positionInArray;
+      }
+
+      public static User Find_The_User_And_Return_User_Instance(string inputName, List<User> inputList)
+      {
+         foreach (User user in inputList)
+         {
+            if (inputName == user.Name)
+            {
+               return user;
+            }
+         }
+         return null;
       }
 
       public static string ValidateUserName(string inputName, List<User> inputList)
