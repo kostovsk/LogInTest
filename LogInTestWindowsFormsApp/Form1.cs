@@ -110,8 +110,9 @@ namespace LogInTestWindowsFormsApp
 
                if (failedPassAttempts < maxFailedLoginAttempts)
                {
-                  passwordIsValid = isValidPassword(indexOfUserName, inputPassword);
-                  if (passwordIsValid)
+                  //passwordIsValid = isValidPassword(indexOfUserName, inputPassword);
+                  string validPassword = ValidatePassword(result);
+                  if (validPassword == inputPassword)
                   {
                      MessageBox.Show("Login correct");
                      ProfilePage p = new ProfilePage(textBox1.Text);
@@ -181,6 +182,23 @@ namespace LogInTestWindowsFormsApp
             if (inputName == user.Name)
             {
                return user.Name;
+            }
+         }
+         return null;
+      }
+
+      public static string ValidatePassword(string result)
+      {
+         UserFactory factory = new UserFactory();
+         List<User> listOfUsersFromFactory = factory.MakeAndReturnAListOfUsers();
+         factory.PopulateListOfUsers(listOfUsersFromFactory);
+         // check if input is in list
+         // note the location of the value in list that match input????
+         foreach (User user in listOfUsersFromFactory)
+         {
+            if (result == user.Name)
+            {
+               return user.Pass;
             }
          }
          return null;
