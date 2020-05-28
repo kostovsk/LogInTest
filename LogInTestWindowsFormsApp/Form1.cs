@@ -101,11 +101,11 @@ namespace LogInTestWindowsFormsApp
                userNameIsValid = true;
             }
 
-
+            string result = ValidateUserName(inputUsername);
             //if (userNameIsValid == true)
             // temporary substitute just to test
             // logic not correct, method returns only true/false
-            if (validateUserName(inputUsername))
+            if (result != null)
             {
 
                if (failedPassAttempts < maxFailedLoginAttempts)
@@ -169,7 +169,7 @@ namespace LogInTestWindowsFormsApp
          return positionInArray;
       }
 
-      public static bool validateUserName(string inputName)
+      public static string ValidateUserName(string inputName)
       {
          UserFactory factory = new UserFactory();
          List<User> listOfUsersFromFactory = factory.MakeAndReturnAListOfUsers();
@@ -180,10 +180,10 @@ namespace LogInTestWindowsFormsApp
          {
             if (inputName == user.Name)
             {
-               return true;
+               return user.Name;
             }
          }
-         return false;
+         return null;
       }
 
       public static bool isValidPassword(int userIndx, string pass)
