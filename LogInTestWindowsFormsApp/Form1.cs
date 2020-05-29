@@ -68,14 +68,13 @@ namespace LogInTestWindowsFormsApp
             List<User> listOfUsersFromFactory = factory.MakeAndReturnAListOfUsers();
             factory.PopulateListOfUsers(listOfUsersFromFactory);
 
-            string result = ValidateUserName(inputUsername, listOfUsersFromFactory);
+            User result = Find_The_User_And_Return_User_Instance(inputUsername, listOfUsersFromFactory);
             if (result != null)
             {
 
                if (failedPassAttempts < maxFailedLoginAttempts)
                {
-                  string validPassword = ValidatePassword(result, listOfUsersFromFactory);
-                  if (validPassword == inputPassword)
+                  if (result.Pass == inputPassword)
                   {
                      MessageBox.Show("Login correct");
                      ProfilePage p = new ProfilePage(textBox1.Text);
@@ -109,7 +108,6 @@ namespace LogInTestWindowsFormsApp
 
       }
 
-
       public static int getUsernameIndex(string name)
       {
          string[][] users = GetUserPasswordArray();
@@ -141,30 +139,6 @@ namespace LogInTestWindowsFormsApp
             if (inputName == user.Name)
             {
                return user;
-            }
-         }
-         return null;
-      }
-
-      public static string ValidateUserName(string inputName, List<User> inputList)
-      { 
-         foreach (User user in inputList)
-         {
-            if (inputName == user.Name)
-            {
-               return user.Name;
-            }
-         }
-         return null;
-      }
-
-      public static string ValidatePassword(string result, List<User> inputList)
-      {         
-         foreach (User user in inputList)
-         {
-            if (result == user.Name)
-            {
-               return user.Pass;
             }
          }
          return null;
