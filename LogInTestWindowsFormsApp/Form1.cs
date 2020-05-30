@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -69,6 +70,9 @@ namespace LogInTestWindowsFormsApp
             factory.PopulateListOfUsers(listOfUsersFromFactory);
 
             User result = Find_The_User_And_Return_User_Instance(inputUsername, listOfUsersFromFactory);
+            // either use a method or integrate in Find and return user method
+            // using mail class to validate
+
             if (result != null)
             {
 
@@ -132,13 +136,34 @@ namespace LogInTestWindowsFormsApp
          return positionInArray;
       }
 
+      public bool Email_Verification (string emailaddress)
+      {
+         try
+         {
+            MailAddress m = new MailAddress(emailaddress);
+            return true;
+         }
+         catch (FormatException)
+         {
+            return false;
+         }
+      }
+
       public static User Find_The_User_And_Return_User_Instance(string inputName, List<User> inputList)
       {
          foreach (User user in inputList)
          {
             if (inputName == user.Name)
             {
-               return user;
+               try
+               {
+                  MailAddress m = new MailAddress(inputName);
+                  return user;
+               }
+               catch (FormatException)
+               {
+                  return null;
+               }
             }
          }
          return null;

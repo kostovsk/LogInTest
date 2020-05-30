@@ -16,9 +16,9 @@ namespace LogInTestWindowsFormsApp
       public List<User> MakeAndReturnAListOfUsers()
       {
          List<User> userList = new List<User>();
-         userList.Add(new User("kostovsk", "123"));
-         userList.Add(new User("skostov", "456"));
-         userList.Add(new User("stoichokostov", "789"));
+         userList.Add(new User("kostovsk@gmail.com", "123"));
+         userList.Add(new User("skostov@gmail.com", "456"));
+         userList.Add(new User("stoichokostov@gmail.com", "789"));
          return userList;
       }
 
@@ -29,9 +29,9 @@ namespace LogInTestWindowsFormsApp
       /// <param name="listOfUsers"></param>
       public void PopulateListOfUsers(List<User> listOfUsers)
       {
-         listOfUsers.Add(new User("kostovsk3", "1011"));
-         listOfUsers.Add(new User("skostov2", "1271"));
-         listOfUsers.Add(new User("stoichokostov4", "6191"));
+         listOfUsers.Add(new User("kostovsk3@gmail.com", "1011"));
+         listOfUsers.Add(new User("skostov2@gmail.com", "1271"));
+         listOfUsers.Add(new User("stoichokostov4@gmail.com", "6191"));
       }
    }
 }
