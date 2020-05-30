@@ -33,5 +33,11 @@ namespace LogInTestWindowsFormsApp
          listOfUsers.Add(new User("skostov2@gmail.com", "1271"));
          listOfUsers.Add(new User("stoichokostov4@gmail.com", "6191"));
       }
+
+      public Dictionary<string, User> Dictionary_Of_Users()
+      {
+         Dictionary<string, User> dict_users = new Dictionary<string, User>();
+         return dict_users;
+      }
    }
 }
