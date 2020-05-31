@@ -34,16 +34,19 @@ namespace LogInTestWindowsFormsApp
 
       private void button1_Click(object sender, EventArgs e)
       {
-         string addUsername = textBox1.Text;
+         string addEmail = textBox1.Text;
          string addPassword = textBox2.Text;
          string addFullname = textBox3.Text;
 
          UserFactory addUsers = new UserFactory();
-         Dictionary<string, User> p = addUsers.Dictionary_Of_Users();
+         Dictionary<string, User> dictOfUsersFromUserFactory = addUsers.Dictionary_Of_Users();
+
+         User newUser = new User(addEmail, addPassword, addFullname);
+         dictOfUsersFromUserFactory.Add(newUser.Email, newUser);
          
          try
          {
-            p.Add(addUsername, new User(addUsername, addPassword, addFullname);
+            dictOfUsersFromUserFactory.Add(newUser.Email, newUser);
          }
          catch
          {
