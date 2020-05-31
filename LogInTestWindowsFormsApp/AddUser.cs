@@ -27,9 +27,28 @@ namespace LogInTestWindowsFormsApp
 
       }
 
-      private void button1_Click(object sender, EventArgs e)
+      private void textBox3_TextChanged(object sender, EventArgs e)
       {
 
+      }
+
+      private void button1_Click(object sender, EventArgs e)
+      {
+         string addUsername = textBox1.Text;
+         string addPassword = textBox2.Text;
+         string addFullname = textBox3.Text;
+
+         UserFactory addUsers = new UserFactory();
+         Dictionary<string, User> p = addUsers.Dictionary_Of_Users();
+         
+         try
+         {
+            p.Add(addUsername, new User(addUsername, addPassword, addFullname);
+         }
+         catch
+         {
+            return ;
+         }
       }
 
       

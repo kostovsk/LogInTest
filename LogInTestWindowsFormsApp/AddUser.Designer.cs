@@ -33,16 +33,18 @@
          this.label2 = new System.Windows.Forms.Label();
          this.textBox1 = new System.Windows.Forms.TextBox();
          this.textBox2 = new System.Windows.Forms.TextBox();
+         this.label3 = new System.Windows.Forms.Label();
+         this.textBox3 = new System.Windows.Forms.TextBox();
          this.SuspendLayout();
          // 
          // button1
          // 
          this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-         this.button1.Location = new System.Drawing.Point(197, 176);
+         this.button1.Location = new System.Drawing.Point(203, 216);
          this.button1.Name = "button1";
-         this.button1.Size = new System.Drawing.Size(75, 23);
+         this.button1.Size = new System.Drawing.Size(101, 27);
          this.button1.TabIndex = 0;
-         this.button1.Text = "Add User";
+         this.button1.Text = "Create User";
          this.button1.UseVisualStyleBackColor = true;
          this.button1.Click += new System.EventHandler(this.button1_Click);
          // 
@@ -84,11 +86,32 @@
          this.textBox2.TabIndex = 4;
          this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
          // 
+         // label3
+         // 
+         this.label3.AutoSize = true;
+         this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+         this.label3.Location = new System.Drawing.Point(110, 173);
+         this.label3.Name = "label3";
+         this.label3.Size = new System.Drawing.Size(103, 16);
+         this.label3.TabIndex = 5;
+         this.label3.Text = "Enter Full Name";
+         // 
+         // textBox3
+         // 
+         this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+         this.textBox3.Location = new System.Drawing.Point(223, 173);
+         this.textBox3.Name = "textBox3";
+         this.textBox3.Size = new System.Drawing.Size(155, 21);
+         this.textBox3.TabIndex = 6;
+         this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+         // 
          // AddUser
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(488, 294);
+         this.Controls.Add(this.textBox3);
+         this.Controls.Add(this.label3);
          this.Controls.Add(this.textBox2);
          this.Controls.Add(this.textBox1);
          this.Controls.Add(this.label2);
@@ -109,5 +132,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
