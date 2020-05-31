@@ -8,25 +8,47 @@ namespace LogInTestWindowsFormsApp
 {
    public class User
    {
-      private string name;
-      private string pass;
+      private string _email;
+      private string _password;
+      private string _fullName;
 
-      public User(string name, string pass)
+
+      public User()
       {
-         this.name = name;
-         this.pass = pass;
+
       }
 
-      public string Name
+      public User(string email, string password)
       {
-         get { return name; }
-         set { name = value; }
+         this._email = email;
+         this._password = password;
       }
 
-      public string Pass
+      public User(string email, string password, string fullName)
       {
-         get { return pass; }
-         set { pass = value; }
+         this._email = email;
+         this._password = password;
+         this._fullName = fullName;
+      }
+
+
+      public string FullName
+      {
+         get { return _fullName; }
+         set { _fullName = value; }
+      }
+
+
+      public string Email
+      {
+         get { return _email; }
+         set { _email = value; }
+      }
+
+      public string Password
+      {
+         get { return _password; }
+         set { _password = value; }
       }
 
    }

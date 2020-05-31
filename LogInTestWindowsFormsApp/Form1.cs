@@ -78,7 +78,7 @@ namespace LogInTestWindowsFormsApp
 
                if (failedPassAttempts < maxFailedLoginAttempts)
                {
-                  if (result.Pass == inputPassword)
+                  if (result.Password == inputPassword)
                   {
                      MessageBox.Show("Login correct");
                      ProfilePage p = new ProfilePage(textBox1.Text);
@@ -153,7 +153,7 @@ namespace LogInTestWindowsFormsApp
       {
          foreach (User user in inputList)
          {
-            if (inputName == user.Name)
+            if (inputName == user.Email)
             {
                try
                {
