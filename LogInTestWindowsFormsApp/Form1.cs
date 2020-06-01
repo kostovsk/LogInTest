@@ -65,11 +65,14 @@ namespace LogInTestWindowsFormsApp
          if (failedLoginAttempts < maxFailedLoginAttempts)
          {
 
-            UserFactory factory = new UserFactory();
-            List<User> listOfUsersFromFactory = factory.MakeAndReturnAListOfUsers();
-            factory.PopulateListOfUsers(listOfUsersFromFactory);
+            //UserFactory factory = new UserFactory();
+            //List<User> listOfUsersFromFactory = factory.MakeAndReturnAListOfUsers();
+            //factory.PopulateListOfUsers(listOfUsersFromFactory);
 
-            User result = Find_The_User_And_Return_User_Instance(inputUsername, listOfUsersFromFactory);
+            UserFactory addUsers = new UserFactory();
+            Dictionary<string, User> dictOfUsersFromUserFactory = addUsers.Dictionary_Of_Users();
+
+            User result = Find_The_User_And_Return_User_Instance(inputUsername, dictOfUsersFromUserFactory);
             // either use a method or integrate in Find and return user method
             // using mail class to validate
 
@@ -149,16 +152,16 @@ namespace LogInTestWindowsFormsApp
          }
       }
 
-      public static User Find_The_User_And_Return_User_Instance(string inputName, List<User> inputList)
+      public static User Find_The_User_And_Return_User_Instance(string inputName, Dictionary<string, User> inputList)
       {
-         foreach (User user in inputList)
+         foreach (KeyValuePair<string, User> user in inputList)
          {
-            if (inputName == user.Email)
+            if (inputName == user.Value.Email)
             {
                try
                {
                   MailAddress m = new MailAddress(inputName);
-                  return user;
+                  return user.Value;
                }
                catch (FormatException)
                {
