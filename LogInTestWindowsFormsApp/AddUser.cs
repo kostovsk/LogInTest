@@ -41,16 +41,17 @@ namespace LogInTestWindowsFormsApp
          UserFactory addUsers = new UserFactory();
          Dictionary<string, User> dictOfUsersFromUserFactory = addUsers.Dictionary_Of_Users();
 
-         User newUser = new User(addEmail, addPassword, addFullname);
-         dictOfUsersFromUserFactory.Add(newUser.Email, newUser);
+         //User newUser = new User(addEmail, addPassword, addFullname);
+         //dictOfUsersFromUserFactory.Add(newUser.Email, newUser);
 
          try
          {
+            User newUser = new User(addEmail, addPassword, addFullname);
             dictOfUsersFromUserFactory.Add(newUser.Email, newUser);
          }
          catch (ArgumentException)
          {
-            Console.WriteLine("The user already exists.");
+            MessageBox.Show("The user already exists.");
          }
          
          Form1 b = new Form1();
