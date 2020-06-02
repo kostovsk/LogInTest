@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LogInTestWindowsFormsApp
 {
-   public partial class AddUser : Form
+   public partial class AddUserForm : Form
    {
-      public AddUser()
+      public AddUserForm()
       {
          InitializeComponent();
       }

@@ -34,7 +34,7 @@
          this.username = new System.Windows.Forms.Label();
          this.password = new System.Windows.Forms.Label();
          this.label1 = new System.Windows.Forms.Label();
-         this.button2 = new System.Windows.Forms.Button();
+         this.btnRegister = new System.Windows.Forms.Button();
          this.SuspendLayout();
          // 
          // textBox1
@@ -97,23 +97,23 @@
          this.label1.TabIndex = 5;
          this.label1.Text = "Not a User?";
          // 
-         // button2
+         // btnRegister
          // 
-         this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-         this.button2.Location = new System.Drawing.Point(123, 319);
-         this.button2.Name = "button2";
-         this.button2.Size = new System.Drawing.Size(75, 23);
-         this.button2.TabIndex = 6;
-         this.button2.Text = "Register";
-         this.button2.UseVisualStyleBackColor = true;
-         this.button2.Click += new System.EventHandler(this.button2_Click);
+         this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+         this.btnRegister.Location = new System.Drawing.Point(123, 319);
+         this.btnRegister.Name = "btnRegister";
+         this.btnRegister.Size = new System.Drawing.Size(75, 23);
+         this.btnRegister.TabIndex = 6;
+         this.btnRegister.Text = "Register";
+         this.btnRegister.UseVisualStyleBackColor = true;
+         this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
          // 
          // Form1
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(393, 361);
-         this.Controls.Add(this.button2);
+         this.Controls.Add(this.btnRegister);
          this.Controls.Add(this.label1);
          this.Controls.Add(this.password);
          this.Controls.Add(this.username);
@@ -136,7 +136,7 @@
         private System.Windows.Forms.Label password;
       public System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnRegister;
     }
 }
 

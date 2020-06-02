@@ -1,6 +1,6 @@
 ﻿namespace LogInTestWindowsFormsApp
 {
-   partial class AddUser
+   partial class AddUserForm
    {
       /// <summary>
       /// Required designer variable.

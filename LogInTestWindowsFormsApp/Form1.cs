@@ -212,10 +212,12 @@ namespace LogInTestWindowsFormsApp
          return arr;
       }
 
-      private void button2_Click(object sender, EventArgs e)
+
+
+      private void btnRegister_Click(object sender, EventArgs e)
       {
-         AddUser u = new AddUser();
-         u.ShowDialog();
+         AddUserForm addUserForm = new AddUserForm();
+         addUserForm.ShowDialog();
       }
    }
 }
