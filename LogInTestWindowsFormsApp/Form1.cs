@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -76,32 +77,42 @@ namespace LogInTestWindowsFormsApp
             // either use a method or integrate in Find and return user method
             // using mail class to validate
 
-            if (result != null)
+            if (Is_Valid_Email(inputUsername))
             {
-
-               if (failedPassAttempts < maxFailedLoginAttempts)
+               if (result != null)
                {
-                  if (result.Password == inputPassword)
+                  if (failedPassAttempts < maxFailedLoginAttempts)
                   {
-                     MessageBox.Show("Login correct");
-                     ProfilePage p = new ProfilePage(textBox1.Text);
-                     p.ShowDialog();
-                     Application.Exit();
+                     if (result.Password == inputPassword)
+                     {
+                        MessageBox.Show("Login correct");
+                        ProfilePage p = new ProfilePage(textBox1.Text);
+                        p.ShowDialog();
+                        Application.Exit();
+                     }
+                     else
+                     {
+                        failedPassAttempts += 1;
+                        MessageBox.Show("Password is incorrect. Please try again:");
+                        textBox2.Text = String.Empty;
+                        textBox2.Focus();
+                     }
                   }
-                  else
-                  {
-                     failedPassAttempts += 1;
-                     MessageBox.Show("Password is incorrect. Please try again:");
-                     textBox2.Text = String.Empty;
-                     textBox2.Focus();
-                  }
-               }
 
+               }
+               else
+               {
+                  failedLoginAttempts += 1;
+                  MessageBox.Show("Username is not in database. Please try again:");
+                  textBox1.Text = String.Empty;
+                  textBox2.Text = String.Empty;
+                  textBox1.Focus();
+               }
             }
             else
             {
                failedLoginAttempts += 1;
-               MessageBox.Show("Username is not in database. Please try again:");
+               MessageBox.Show("Username is not an email. Please try again:");
                textBox1.Text = String.Empty;
                textBox2.Text = String.Empty;
                textBox1.Focus();
@@ -139,16 +150,15 @@ namespace LogInTestWindowsFormsApp
          return positionInArray;
       }
 
-      public bool Email_Verification (string emailaddress)
+      public static bool Is_Valid_Email(string email)
       {
-         try
+         if(email != null)
          {
-            MailAddress m = new MailAddress(emailaddress);
-            return true;
+            return Regex.IsMatch(email, @"(@)(.+)$");
          }
-         catch (FormatException)
+         else
          {
-            return false;
+            return false; 
          }
       }
 
@@ -156,17 +166,10 @@ namespace LogInTestWindowsFormsApp
       {
          foreach (KeyValuePair<string, User> user in inputList)
          {
+            // find the user after the input is validated 
             if (inputName == user.Value.Email)
             {
-               try
-               {
-                  MailAddress m = new MailAddress(inputName);
-                  return user.Value;
-               }
-               catch (FormatException)
-               {
-                  return null;
-               }
+               return user.Value;
             }
          }
          return null;
