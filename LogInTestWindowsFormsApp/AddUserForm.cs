@@ -31,22 +31,43 @@ namespace LogInTestWindowsFormsApp
       {
 
       }
-
-      private void button1_Click(object sender, EventArgs e)
+      /*
+       * ####### Code review note ##########
+       *
+       * Make sure to name your form elements and functions appropriately
+       * so you can find them in the code when your code base grows larger
+       */
+      private void btnCreateUser_Click(object sender, EventArgs e)
       {
-         string addEmail = textBox1.Text;
-         string addPassword = textBox2.Text;
-         string addFullname = textBox3.Text;
+         string addEmail = txtEmail.Text;
+         string addPassword = txtPassword.Text;
+         string addFullname = txtFullName.Text;
 
-         UserFactory addUsers = new UserFactory();
-         Dictionary<string, User> dictOfUsersFromUserFactory = addUsers.Dictionary_Of_Users();
+         UserFactory userFactory = new UserFactory();
+         Dictionary<string, User> dictOfUsersFromUserFactory = userFactory.Dictionary_Of_Users();
 
-         //User newUser = new User(addEmail, addPassword, addFullname);
-         //dictOfUsersFromUserFactory.Add(newUser.Email, newUser);
+         User newUser = new User(addEmail, addPassword, addFullname);
+
+
+         /*
+          *####### Code review note ##########
+          *
+          * Avoid using try-catch for simple logical operations
+          * https://docs.microsoft.com/en-us/dotnet/standard/exceptions/best-practices-for-exceptions
+          *
+          */
+
+
+
+         /*
+          * TODO:
+          * Apply proper KEY check for Dictionary such as .ContainsKey
+          * https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.containskey?view=netframework-4.8#examples
+          *
+          */
 
          try
          {
-            User newUser = new User(addEmail, addPassword, addFullname);
             dictOfUsersFromUserFactory.Add(newUser.Email, newUser);
          }
          catch (ArgumentException)

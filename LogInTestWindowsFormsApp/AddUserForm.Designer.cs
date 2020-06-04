@@ -28,25 +28,25 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.button1 = new System.Windows.Forms.Button();
+         this.btnCreateUser = new System.Windows.Forms.Button();
          this.label1 = new System.Windows.Forms.Label();
          this.label2 = new System.Windows.Forms.Label();
-         this.textBox1 = new System.Windows.Forms.TextBox();
-         this.textBox2 = new System.Windows.Forms.TextBox();
+         this.txtEmail = new System.Windows.Forms.TextBox();
+         this.txtPassword = new System.Windows.Forms.TextBox();
          this.label3 = new System.Windows.Forms.Label();
-         this.textBox3 = new System.Windows.Forms.TextBox();
+         this.txtFullName = new System.Windows.Forms.TextBox();
          this.SuspendLayout();
          // 
-         // button1
+         // btnCreateUser
          // 
-         this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-         this.button1.Location = new System.Drawing.Point(203, 216);
-         this.button1.Name = "button1";
-         this.button1.Size = new System.Drawing.Size(101, 27);
-         this.button1.TabIndex = 0;
-         this.button1.Text = "Create User";
-         this.button1.UseVisualStyleBackColor = true;
-         this.button1.Click += new System.EventHandler(this.button1_Click);
+         this.btnCreateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+         this.btnCreateUser.Location = new System.Drawing.Point(203, 216);
+         this.btnCreateUser.Name = "btnCreateUser";
+         this.btnCreateUser.Size = new System.Drawing.Size(101, 27);
+         this.btnCreateUser.TabIndex = 0;
+         this.btnCreateUser.Text = "Create User";
+         this.btnCreateUser.UseVisualStyleBackColor = true;
+         this.btnCreateUser.Click += new System.EventHandler(this.btnCreateUser_Click);
          // 
          // label1
          // 
@@ -68,23 +68,23 @@
          this.label2.TabIndex = 2;
          this.label2.Text = "Enter Password";
          // 
-         // textBox1
+         // txtEmail
          // 
-         this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-         this.textBox1.Location = new System.Drawing.Point(223, 96);
-         this.textBox1.Name = "textBox1";
-         this.textBox1.Size = new System.Drawing.Size(155, 21);
-         this.textBox1.TabIndex = 3;
-         this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+         this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+         this.txtEmail.Location = new System.Drawing.Point(223, 96);
+         this.txtEmail.Name = "txtEmail";
+         this.txtEmail.Size = new System.Drawing.Size(155, 21);
+         this.txtEmail.TabIndex = 3;
+         this.txtEmail.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
          // 
-         // textBox2
+         // txtPassword
          // 
-         this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-         this.textBox2.Location = new System.Drawing.Point(223, 133);
-         this.textBox2.Name = "textBox2";
-         this.textBox2.Size = new System.Drawing.Size(155, 21);
-         this.textBox2.TabIndex = 4;
-         this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+         this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+         this.txtPassword.Location = new System.Drawing.Point(223, 133);
+         this.txtPassword.Name = "txtPassword";
+         this.txtPassword.Size = new System.Drawing.Size(155, 21);
+         this.txtPassword.TabIndex = 4;
+         this.txtPassword.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
          // 
          // label3
          // 
@@ -96,28 +96,28 @@
          this.label3.TabIndex = 5;
          this.label3.Text = "Enter Full Name";
          // 
-         // textBox3
+         // txtFullName
          // 
-         this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-         this.textBox3.Location = new System.Drawing.Point(223, 173);
-         this.textBox3.Name = "textBox3";
-         this.textBox3.Size = new System.Drawing.Size(155, 21);
-         this.textBox3.TabIndex = 6;
-         this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+         this.txtFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+         this.txtFullName.Location = new System.Drawing.Point(223, 173);
+         this.txtFullName.Name = "txtFullName";
+         this.txtFullName.Size = new System.Drawing.Size(155, 21);
+         this.txtFullName.TabIndex = 6;
+         this.txtFullName.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
          // 
-         // AddUser
+         // AddUserForm
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(488, 294);
-         this.Controls.Add(this.textBox3);
+         this.Controls.Add(this.txtFullName);
          this.Controls.Add(this.label3);
-         this.Controls.Add(this.textBox2);
-         this.Controls.Add(this.textBox1);
+         this.Controls.Add(this.txtPassword);
+         this.Controls.Add(this.txtEmail);
          this.Controls.Add(this.label2);
          this.Controls.Add(this.label1);
-         this.Controls.Add(this.button1);
-         this.Name = "AddUser";
+         this.Controls.Add(this.btnCreateUser);
+         this.Name = "AddUserForm";
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          this.Text = "AddUser";
          this.ResumeLayout(false);
@@ -127,12 +127,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCreateUser;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtFullName;
     }
 }
