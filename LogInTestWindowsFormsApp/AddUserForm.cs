@@ -15,6 +15,10 @@ namespace LogInTestWindowsFormsApp
       public AddUserForm()
       {
          InitializeComponent();
+         txtEmail.KeyDown += txtEmail_KeyDown;
+         txtPassword.KeyDown += txtPassword_KeyDown;
+         txtFullName.KeyDown += txtFullName_KeyDown;
+         txtPassword.PasswordChar = '●';
       }
 
       private void textBox2_TextChanged(object sender, EventArgs e)
@@ -24,12 +28,36 @@ namespace LogInTestWindowsFormsApp
 
       private void textBox1_TextChanged(object sender, EventArgs e)
       {
-
+         txtEmail.Focus();
       }
 
       private void textBox3_TextChanged(object sender, EventArgs e)
       {
 
+      }
+
+      private void txtEmail_KeyDown(object sender, KeyEventArgs e)
+      {
+         if (e.KeyCode == Keys.Enter)
+         {
+            txtPassword.Focus();
+         }
+      }
+
+      private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+      {
+         if (e.KeyCode == Keys.Enter)
+         {
+            txtFullName.Focus();
+         }
+      }
+
+      private void txtFullName_KeyDown(object sender, KeyEventArgs e)
+      {
+         if (e.KeyCode == Keys.Enter)
+         {
+            btnCreateUser.PerformClick();
+         }
       }
       /*
        * ####### Code review note ##########
@@ -66,18 +94,22 @@ namespace LogInTestWindowsFormsApp
           *
           */
 
-         try
-         {
-            dictOfUsersFromUserFactory.Add(newUser.Email, newUser);
-         }
-         catch (ArgumentException)
+         if(dictOfUsersFromUserFactory.ContainsKey(newUser.Email))
          {
             MessageBox.Show("The user already exists.");
+            txtEmail.Text = String.Empty;
+            txtPassword.Text = String.Empty;
+            txtFullName.Text = String.Empty;
+            txtEmail.Focus();
+         }
+         else
+         {
+            dictOfUsersFromUserFactory.Add(newUser.Email, newUser);
+            Form1 b = new Form1();
+            b.ShowDialog();
          }
          
-         Form1 b = new Form1();
-         b.ShowDialog();
-         
       }
+
    }
 }

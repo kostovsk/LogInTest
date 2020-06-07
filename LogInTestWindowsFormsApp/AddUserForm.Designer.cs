@@ -120,6 +120,7 @@
          this.Name = "AddUserForm";
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          this.Text = "AddUser";
+         this.Shown += new System.EventHandler(this.textBox1_TextChanged);
          this.ResumeLayout(false);
          this.PerformLayout();
 

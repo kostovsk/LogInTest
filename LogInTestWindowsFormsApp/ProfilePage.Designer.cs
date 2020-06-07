@@ -28,20 +28,10 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.button1 = new System.Windows.Forms.Button();
          this.label1 = new System.Windows.Forms.Label();
-         this.label2 = new System.Windows.Forms.Label();
+         this.lblUserEmail = new System.Windows.Forms.Label();
+         this.btnCancel = new System.Windows.Forms.Button();
          this.SuspendLayout();
-         // 
-         // button1
-         // 
-         this.button1.Location = new System.Drawing.Point(142, 201);
-         this.button1.Name = "button1";
-         this.button1.Size = new System.Drawing.Size(75, 23);
-         this.button1.TabIndex = 0;
-         this.button1.Text = "Cancel";
-         this.button1.UseVisualStyleBackColor = true;
-         this.button1.Click += new System.EventHandler(this.button1_Click);
          // 
          // label1
          // 
@@ -53,24 +43,35 @@
          this.label1.TabIndex = 1;
          this.label1.Text = "Welcome";
          // 
-         // label2
+         // lblUserEmail
          // 
-         this.label2.AutoSize = true;
-         this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-         this.label2.Location = new System.Drawing.Point(142, 72);
-         this.label2.Name = "label2";
-         this.label2.Size = new System.Drawing.Size(60, 24);
-         this.label2.TabIndex = 2;
-         this.label2.Text = "label2";
+         this.lblUserEmail.AutoSize = true;
+         this.lblUserEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+         this.lblUserEmail.Location = new System.Drawing.Point(142, 72);
+         this.lblUserEmail.Name = "lblUserEmail";
+         this.lblUserEmail.Size = new System.Drawing.Size(49, 24);
+         this.lblUserEmail.TabIndex = 2;
+         this.lblUserEmail.Text = "User";
+         // 
+         // btnCancel
+         // 
+         this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+         this.btnCancel.Location = new System.Drawing.Point(146, 124);
+         this.btnCancel.Name = "btnCancel";
+         this.btnCancel.Size = new System.Drawing.Size(82, 28);
+         this.btnCancel.TabIndex = 3;
+         this.btnCancel.Text = "Cancel";
+         this.btnCancel.UseVisualStyleBackColor = true;
+         this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
          // 
          // ProfilePage
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(362, 250);
-         this.Controls.Add(this.label2);
+         this.Controls.Add(this.btnCancel);
+         this.Controls.Add(this.lblUserEmail);
          this.Controls.Add(this.label1);
-         this.Controls.Add(this.button1);
          this.Name = "ProfilePage";
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          this.Text = "ProfilePage";
@@ -80,9 +81,8 @@
       }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label lblUserEmail;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

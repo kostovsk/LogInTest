@@ -16,10 +16,10 @@ namespace LogInTestWindowsFormsApp
       public ProfilePage(string text)
       {
          InitializeComponent();
-         label2.Text = text;
+         lblUserEmail.Text = text;
       }
 
-      private void button1_Click(object sender, EventArgs e)
+      private void btnCancel_Click(object sender, EventArgs e)
       {
          Application.Exit();
       }
