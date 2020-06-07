@@ -105,8 +105,8 @@ namespace LogInTestWindowsFormsApp
          else
          {
             dictOfUsersFromUserFactory.Add(newUser.Email, newUser);
-            Form1 b = new Form1();
-            b.ShowDialog();
+            Form1 New_Log_In_Form = new Form1();
+            New_Log_In_Form.ShowDialog();
          }
          
       }
