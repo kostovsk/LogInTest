@@ -29,7 +29,7 @@
       private void InitializeComponent()
       {
          this.label1 = new System.Windows.Forms.Label();
-         this.lblUserEmail = new System.Windows.Forms.Label();
+         this.lblFullName = new System.Windows.Forms.Label();
          this.btnCancel = new System.Windows.Forms.Button();
          this.SuspendLayout();
          // 
@@ -43,15 +43,15 @@
          this.label1.TabIndex = 1;
          this.label1.Text = "Welcome";
          // 
-         // lblUserEmail
+         // lblFullName
          // 
-         this.lblUserEmail.AutoSize = true;
-         this.lblUserEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-         this.lblUserEmail.Location = new System.Drawing.Point(142, 72);
-         this.lblUserEmail.Name = "lblUserEmail";
-         this.lblUserEmail.Size = new System.Drawing.Size(49, 24);
-         this.lblUserEmail.TabIndex = 2;
-         this.lblUserEmail.Text = "User";
+         this.lblFullName.AutoSize = true;
+         this.lblFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+         this.lblFullName.Location = new System.Drawing.Point(142, 72);
+         this.lblFullName.Name = "lblFullName";
+         this.lblFullName.Size = new System.Drawing.Size(97, 24);
+         this.lblFullName.TabIndex = 2;
+         this.lblFullName.Text = "Full Name";
          // 
          // btnCancel
          // 
@@ -70,7 +70,7 @@
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(362, 250);
          this.Controls.Add(this.btnCancel);
-         this.Controls.Add(this.lblUserEmail);
+         this.Controls.Add(this.lblFullName);
          this.Controls.Add(this.label1);
          this.Name = "ProfilePage";
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -82,7 +82,7 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Label lblUserEmail;
+        public System.Windows.Forms.Label lblFullName;
         private System.Windows.Forms.Button btnCancel;
     }
 }

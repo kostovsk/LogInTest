@@ -115,7 +115,7 @@ namespace LogInTestWindowsFormsApp
                      if (result.Password == inputPassword)
                      {
                         MessageBox.Show("Login correct");
-                        ProfilePage User_Profile_Page = new ProfilePage(txtEmail.Text);
+                        ProfilePage User_Profile_Page = new ProfilePage(result.FullName);
                         User_Profile_Page.ShowDialog();
                         Application.Exit();
                      }

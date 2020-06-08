@@ -16,7 +16,7 @@ namespace LogInTestWindowsFormsApp
       public ProfilePage(string text)
       {
          InitializeComponent();
-         lblUserEmail.Text = text;
+         lblFullName.Text = text;
       }
 
       private void btnCancel_Click(object sender, EventArgs e)
