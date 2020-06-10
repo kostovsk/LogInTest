@@ -74,6 +74,17 @@ namespace LogInTestWindowsFormsApp
          UserFactory userFactory = new UserFactory();
          Dictionary<string, User> dictOfUsersFromUserFactory = userFactory.Dictionary_Of_Users();
 
+         UsersService userService = new UsersService();
+         List<User> dictOfUsersFromJson = userService.GetUsers();
+
+         foreach (User item in dictOfUsersFromJson)
+         {
+            if (addEmail == item.Email)
+            {
+               MessageBox.Show("True");
+            }
+         }
+
          User newUser = new User(addEmail, addPassword, addFullname);
 
 
@@ -94,21 +105,21 @@ namespace LogInTestWindowsFormsApp
           *
           */
 
-         if(dictOfUsersFromUserFactory.ContainsKey(newUser.Email))
-         {
-            MessageBox.Show("The user already exists.");
-            txtEmail.Text = String.Empty;
-            txtPassword.Text = String.Empty;
-            txtFullName.Text = String.Empty;
-            txtEmail.Focus();
-         }
-         else
-         {
-            dictOfUsersFromUserFactory.Add(newUser.Email, newUser);
-            Form1 New_Log_In_Form = new Form1();
-            New_Log_In_Form.ShowDialog();
-         }
-         
+         //if (dictOfUsersFromUserFactory.ContainsKey(newUser.Email))
+         //{
+         //   MessageBox.Show("The user already exists.");
+         //   txtEmail.Text = String.Empty;
+         //   txtPassword.Text = String.Empty;
+         //   txtFullName.Text = String.Empty;
+         //   txtEmail.Focus();
+         //}
+         //else
+         //{
+         //   dictOfUsersFromUserFactory.Add(newUser.Email, newUser);
+         //   Form1 New_Log_In_Form = new Form1();
+         //   New_Log_In_Form.ShowDialog();
+         //}
+
       }
 
    }
