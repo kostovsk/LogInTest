@@ -52,25 +52,25 @@ namespace LogInTestWindowsFormsApp
 
       public static bool Is_Valid_Email(string email)
       {
-         if(email != null)
+         if (email != null)
          {
             return Regex.IsMatch(email, @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
                 @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$");
          }
          else
          {
-            return false; 
+            return false;
          }
       }
 
-      public static User Find_The_User_And_Return_User_Instance(string inputName, Dictionary<string, User> inputList)
+      public static User Find_The_User_And_Return_User_Instance(string inputName, List<User> inputList)
       {
-         foreach (KeyValuePair<string, User> user in inputList)
+         foreach (User user in inputList)
          {
             // find the user after the input is validated 
-            if (inputName == user.Value.Email)
+            if (inputName == user.Email)
             {
-               return user.Value;
+               return user;
             }
          }
          return null;
@@ -94,17 +94,11 @@ namespace LogInTestWindowsFormsApp
 
          if (failedLoginAttempts < maxFailedLoginAttempts)
          {
+            UserFactory newFactory = new UserFactory();
+            List<User> newListJson = newFactory.Get_List_Of_Users_Json();
 
-            //UserFactory factory = new UserFactory();
-            //List<User> listOfUsersFromFactory = factory.MakeAndReturnAListOfUsers();
-            //factory.PopulateListOfUsers(listOfUsersFromFactory);
+            User result = Find_The_User_And_Return_User_Instance(inputUsername, newListJson);
 
-            UserFactory addUsers = new UserFactory();
-            Dictionary<string, User> dictOfUsersFromUserFactory = addUsers.Dictionary_Of_Users();
-
-            User result = Find_The_User_And_Return_User_Instance(inputUsername, dictOfUsersFromUserFactory);
-            // either use a method or integrate in Find and return user method
-            // using mail class to validate
 
             if (Is_Valid_Email(inputUsername))
             {
@@ -156,6 +150,7 @@ namespace LogInTestWindowsFormsApp
       }
    }
 }
+
 
 
 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -80,22 +81,37 @@ namespace LogInTestWindowsFormsApp
          newListFromInput.Add(newUser);
 
          UserFactory userFactory = new UserFactory();
-         Dictionary<string, User> dictOfUsersFromUserFactory = userFactory.Dictionary_Of_Users();
+         List<User> listOfUsersFromJson = userFactory.Get_List_Of_Users_Json();
 
-         UsersService userService = new UsersService();
-         List<User> dictOfUsersFromJson = userService.GetUsers();
+         bool stopForLoop = true;
 
-         foreach (User item in dictOfUsersFromJson)
+         if (stopForLoop)
          {
-            if (addEmail == item.Email)
+            foreach (User item in listOfUsersFromJson)
             {
-               MessageBox.Show("True");
-            }
-            else
-            {
-               userService.SaveUsers(newListFromInput);
+               if (addEmail == item.Email)
+               {
+                  MessageBox.Show("The user already exists.");
+                  txtEmail.Text = String.Empty;
+                  txtPassword.Text = String.Empty;
+                  txtFullName.Text = String.Empty;
+                  txtEmail.Focus();
+                  stopForLoop = false;
+               }
             }
          }
+         else
+         {
+            userFactory.Save_User_To_New_List(newListFromInput);
+            MessageBox.Show("Add another user.");
+            txtEmail.Text = String.Empty;
+            txtPassword.Text = String.Empty;
+            txtFullName.Text = String.Empty;
+            txtEmail.Focus();
+            stopForLoop = true;
+         }
+
+         
 
          /*
           *####### Code review note ##########
@@ -114,6 +130,9 @@ namespace LogInTestWindowsFormsApp
           *
           */
 
+
+         //UserFactory userFactory = new UserFactory();
+         //Dictionary<string, User> dictOfUsersFromUserFactory = userFactory.Dictionary_Of_Users();
          //if (dictOfUsersFromUserFactory.ContainsKey(newUser.Email))
          //{
          //   MessageBox.Show("The user already exists.");
