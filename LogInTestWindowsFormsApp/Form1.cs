@@ -63,12 +63,12 @@ namespace LogInTestWindowsFormsApp
          }
       }
 
-      public static User Find_The_User_And_Return_User_Instance(string inputName, List<User> inputList)
+      public static User Find_The_User_And_Return_User_Instance(string inputEmail, List<User> inputList)
       {
          foreach (User user in inputList)
          {
             // find the user after the input is validated 
-            if (inputName == user.Email)
+            if (inputEmail == user.Email)
             {
                return user;
             }

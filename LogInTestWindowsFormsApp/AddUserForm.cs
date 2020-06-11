@@ -60,12 +60,20 @@ namespace LogInTestWindowsFormsApp
             btnCreateUser.PerformClick();
          }
       }
-      /*
-       * ####### Code review note ##########
-       *
-       * Make sure to name your form elements and functions appropriately
-       * so you can find them in the code when your code base grows larger
-       */
+
+      public static User Find_The_User_And_Return_User_Instance(string inputEmail, List<User> inputList)
+      {
+         foreach (User user in inputList)
+         {
+            // find the user after the input is validated 
+            if (inputEmail == user.Email)
+            {
+               return user;
+            }
+         }
+         return null;
+      }
+
       private void btnCreateUser_Click(object sender, EventArgs e)
       {
          string addEmail = txtEmail.Text;
@@ -83,24 +91,9 @@ namespace LogInTestWindowsFormsApp
          UserFactory userFactory = new UserFactory();
          List<User> listOfUsersFromJson = userFactory.Get_List_Of_Users_Json();
 
-         bool stopForLoop = true;
+         User result = Find_The_User_And_Return_User_Instance(addEmail, listOfUsersFromJson);
 
-         if (stopForLoop)
-         {
-            foreach (User item in listOfUsersFromJson)
-            {
-               if (addEmail == item.Email)
-               {
-                  MessageBox.Show("The user already exists.");
-                  txtEmail.Text = String.Empty;
-                  txtPassword.Text = String.Empty;
-                  txtFullName.Text = String.Empty;
-                  txtEmail.Focus();
-                  stopForLoop = false;
-               }
-            }
-         }
-         else
+         if (result != null)
          {
             userFactory.Save_User_To_New_List(newListFromInput);
             MessageBox.Show("Add another user.");
@@ -108,47 +101,35 @@ namespace LogInTestWindowsFormsApp
             txtPassword.Text = String.Empty;
             txtFullName.Text = String.Empty;
             txtEmail.Focus();
-            stopForLoop = true;
+         }
+         else
+         {
+            MessageBox.Show("The user already exists.");
+            txtEmail.Text = String.Empty;
+            txtPassword.Text = String.Empty;
+            txtFullName.Text = String.Empty;
+            txtEmail.Focus();
          }
 
-         
-
-         /*
-          *####### Code review note ##########
-          *
-          * Avoid using try-catch for simple logical operations
-          * https://docs.microsoft.com/en-us/dotnet/standard/exceptions/best-practices-for-exceptions
-          *
-          */
-
-
-
-         /*
-          * TODO:
-          * Apply proper KEY check for Dictionary such as .ContainsKey
-          * https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.containskey?view=netframework-4.8#examples
-          *
-          */
-
-
-         //UserFactory userFactory = new UserFactory();
-         //Dictionary<string, User> dictOfUsersFromUserFactory = userFactory.Dictionary_Of_Users();
-         //if (dictOfUsersFromUserFactory.ContainsKey(newUser.Email))
-         //{
-         //   MessageBox.Show("The user already exists.");
-         //   txtEmail.Text = String.Empty;
-         //   txtPassword.Text = String.Empty;
-         //   txtFullName.Text = String.Empty;
-         //   txtEmail.Focus();
-         //}
-         //else
-         //{
-         //   dictOfUsersFromUserFactory.Add(newUser.Email, newUser);
-         //   Form1 New_Log_In_Form = new Form1();
-         //   New_Log_In_Form.ShowDialog();
-         //}
-
       }
-
    }
 }
+
+
+
+//UserFactory userFactory = new UserFactory();
+//Dictionary<string, User> dictOfUsersFromUserFactory = userFactory.Dictionary_Of_Users();
+//if (dictOfUsersFromUserFactory.ContainsKey(newUser.Email))
+//{
+//   MessageBox.Show("The user already exists.");
+//   txtEmail.Text = String.Empty;
+//   txtPassword.Text = String.Empty;
+//   txtFullName.Text = String.Empty;
+//   txtEmail.Focus();
+//}
+//else
+//{
+//   dictOfUsersFromUserFactory.Add(newUser.Email, newUser);
+//   Form1 New_Log_In_Form = new Form1();
+//   New_Log_In_Form.ShowDialog();
+//}
