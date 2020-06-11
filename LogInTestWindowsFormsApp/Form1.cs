@@ -63,7 +63,7 @@ namespace LogInTestWindowsFormsApp
          }
       }
 
-      public static User Find_The_User_And_Return_User_Instance(string inputEmail, List<User> inputList)
+      public User Find_The_User_And_Return_User_Instance(string inputEmail, List<User> inputList)
       {
          foreach (User user in inputList)
          {

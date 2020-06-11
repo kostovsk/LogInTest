@@ -61,19 +61,6 @@ namespace LogInTestWindowsFormsApp
          }
       }
 
-      public static User Find_The_User_And_Return_User_Instance(string inputEmail, List<User> inputList)
-      {
-         foreach (User user in inputList)
-         {
-            // find the user after the input is validated 
-            if (inputEmail == user.Email)
-            {
-               return user;
-            }
-         }
-         return null;
-      }
-
       private void btnCreateUser_Click(object sender, EventArgs e)
       {
          string addEmail = txtEmail.Text;
@@ -91,11 +78,12 @@ namespace LogInTestWindowsFormsApp
          UserFactory userFactory = new UserFactory();
          List<User> listOfUsersFromJson = userFactory.Get_List_Of_Users_Json();
 
-         User result = Find_The_User_And_Return_User_Instance(addEmail, listOfUsersFromJson);
+         Form1 newForm = new Form1();
+         User returnUser = newForm.Find_The_User_And_Return_User_Instance(addEmail, listOfUsersFromJson);
 
-         if (result != null)
+         if (returnUser != null)
          {
-            MessageBox.Show("The user already exists.");
+            MessageBox.Show("The user already exists! Try entering a new one.");
             txtEmail.Text = String.Empty;
             txtPassword.Text = String.Empty;
             txtFullName.Text = String.Empty;
