@@ -95,8 +95,7 @@ namespace LogInTestWindowsFormsApp
 
          if (result != null)
          {
-            userFactory.Save_User_To_New_List(newListFromInput);
-            MessageBox.Show("Add another user.");
+            MessageBox.Show("The user already exists.");
             txtEmail.Text = String.Empty;
             txtPassword.Text = String.Empty;
             txtFullName.Text = String.Empty;
@@ -104,7 +103,8 @@ namespace LogInTestWindowsFormsApp
          }
          else
          {
-            MessageBox.Show("The user already exists.");
+            userFactory.Save_User_To_New_List(newListFromInput);
+            MessageBox.Show("Add another user.");
             txtEmail.Text = String.Empty;
             txtPassword.Text = String.Empty;
             txtFullName.Text = String.Empty;
