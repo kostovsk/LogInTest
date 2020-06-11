@@ -54,7 +54,9 @@ namespace LogInTestWindowsFormsApp
          dict_users.Add(userEmample3.Email, userEmample3);
 
          //TODO: add additional users:
-         
+         UsersService userService = new UsersService();
+         List<User> dictOfUsersFromJson = userService.GetUsers();
+
 
          return dict_users;
       }

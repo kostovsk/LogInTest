@@ -71,6 +71,14 @@ namespace LogInTestWindowsFormsApp
          string addPassword = txtPassword.Text;
          string addFullname = txtFullName.Text;
 
+         User newUser = new User();
+         newUser.Email = addEmail;
+         newUser.Password = addPassword;
+         newUser.FullName = addFullname;
+
+         List<User> newListFromInput = new List<User>();
+         newListFromInput.Add(newUser);
+
          UserFactory userFactory = new UserFactory();
          Dictionary<string, User> dictOfUsersFromUserFactory = userFactory.Dictionary_Of_Users();
 
@@ -83,10 +91,11 @@ namespace LogInTestWindowsFormsApp
             {
                MessageBox.Show("True");
             }
+            else
+            {
+               userService.SaveUsers(newListFromInput);
+            }
          }
-
-         User newUser = new User(addEmail, addPassword, addFullname);
-
 
          /*
           *####### Code review note ##########
