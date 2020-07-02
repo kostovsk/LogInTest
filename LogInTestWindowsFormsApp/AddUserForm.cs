@@ -92,7 +92,7 @@ namespace LogInTestWindowsFormsApp
          else
          {
             userFactory.Save_User_To_New_List(newListFromInput);
-            MessageBox.Show("Add another user.");
+            MessageBox.Show("New user created! Add another user.");
             txtEmail.Text = String.Empty;
             txtPassword.Text = String.Empty;
             txtFullName.Text = String.Empty;
