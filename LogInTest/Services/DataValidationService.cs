@@ -44,8 +44,7 @@ namespace LogInTest.Services
 
       private void btnRegister_Click(object sender, EventArgs e)
       {
-         AddUserForm addUserForm = new AddUserForm();
-         addUserForm.ShowDialog();
+         
       }
 
       public static readonly int maxFailedLoginAttempts = 3;
@@ -55,8 +54,8 @@ namespace LogInTest.Services
 
       private void btn_Click(object sender, EventArgs e)
       {
-         string inputUsername = txtEmail.Text;
-         string inputPassword = txtPassword.Text;
+         string inputUsername = "";
+         string inputPassword = "";
 
          if (failedLoginAttempts < maxFailedLoginAttempts)
          {
@@ -74,43 +73,29 @@ namespace LogInTest.Services
                   {
                      if (result.Password == inputPassword)
                      {
-                        MessageBox.Show("Login correct");
-                        ProfilePage User_Profile_Page = new ProfilePage(result.FullName);
-                        User_Profile_Page.ShowDialog();
-                        Application.Exit();
+                        
                      }
                      else
                      {
-                        failedPassAttempts += 1;
-                        MessageBox.Show("Password is incorrect. Please try again:");
-                        txtPassword.Text = String.Empty;
-                        txtPassword.Focus();
+                        
                      }
                   }
 
                }
                else
                {
-                  failedLoginAttempts += 1;
-                  MessageBox.Show("Username is not in database. Please try again:");
-                  txtEmail.Text = String.Empty;
-                  txtPassword.Text = String.Empty;
-                  txtEmail.Focus();
+                  
                }
             }
             else
             {
-               failedLoginAttempts += 1;
-               MessageBox.Show("Username is not an email. Please try again:");
-               txtEmail.Text = String.Empty;
-               txtPassword.Text = String.Empty;
-               txtEmail.Focus();
+               
             }
          }
 
          if (failedLoginAttempts >= 3 || failedPassAttempts >= 3)
          {
-            Application.Exit();
+            
          }
 
       }

@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+   ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
@@ -22,4 +22,9 @@
         </div>
     </form>
 </div>
+
+@foreach (var user in Model.Users)
+{
+    <h2>@user.Email</h2>
+}
 
