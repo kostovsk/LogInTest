@@ -1,49 +1,21 @@
-﻿namespace LogInTest.Services
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LogInTest.Models
+
 {
    public class User
    {
-      private string _email;
-      private string _password;
-      private string _fullName;
+      public string Email { get; set; }  
 
+      public string FullName { get; set; }
 
-      public User()
-      {
+      public string Password { get; set; }
 
-      }
-
-      public User(string email, string password)
-      {
-         this._email = email;
-         this._password = password;
-      }
-
-      public User(string email, string password, string fullName)
-      {
-         this._email = email;
-         this._password = password;
-         this._fullName = fullName;
-      }
-
-
-      public string FullName
-      {
-         get { return _fullName; }
-         set { _fullName = value; }
-      }
-
-
-      public string Email
-      {
-         get { return _email; }
-         set { _email = value; }
-      }
-
-      public string Password
-      {
-         get { return _password; }
-         set { _password = value; }
-      }
 
    }
 }
