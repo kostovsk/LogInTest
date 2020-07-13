@@ -10,6 +10,8 @@ namespace LogInTest.Models
 {
    public class User
    {
+      [Key]
+
       public string Email { get; set; }  
 
       public string FullName { get; set; }
